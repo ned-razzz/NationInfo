@@ -24,9 +24,11 @@ public class Controller {
         
         //test code
         Controller controll = new Controller();
-        controll.addFilter("기후", "?", "온난");
-        controll.deleteFilter("기후", "?", "온난");
-        controll.search();
+        //controll.addFilter("기후", "?", "온난");
+        //controll.deleteFilter("기후", "?", "온난");
+        //controll.search();
+        ButtonListener button = new ButtonListener(controll);
+        button.pushButton();
         System.out.print("성공\n");
 	}
 	
@@ -58,6 +60,7 @@ public class Controller {
 	
 	//set event Listener - ?
 	public void setEventListener() {
+		
 	}
 	
 	//set bookmark - temporary
