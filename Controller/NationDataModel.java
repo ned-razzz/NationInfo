@@ -8,9 +8,10 @@ public class NationDataModel {
 	//temporary Method
 	public ArrayList<String> getData(String sq){
 		ArrayList<String> al = new ArrayList<String>();
-		al.add("첫번째");
+		//get Data use sq from database
+		al.add("첫 번째");
 		al.add("두 번째");
-		al.add("세번째");
+		al.add("세 번째");
 		return al;
 	}
 }

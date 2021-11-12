@@ -14,7 +14,7 @@ public class SearchFilterModel{
 	
 	//temporary method
 	public String getSql() {
-		return "Sql Data";
+		return "This is SQL sentence";
 	}
 	
 	//get filter(temporary Method)

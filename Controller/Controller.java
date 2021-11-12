@@ -2,10 +2,13 @@ package Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.*;
 
 //Class for test controller
 public class Controller {
 	//variable
+	static private ArrayList<String> data_list; //temporary
+	
 	static private NationDataModel data_model;
 	static private SearchFilterModel filter_model;
 	static private View view_client;
@@ -23,11 +26,20 @@ public class Controller {
         Controller controll = new Controller();
         controll.addFilter("기후", "?", "온난");
         controll.deleteFilter("기후", "?", "온난");
+        controll.search();
         System.out.print("성공\n");
 	}
 	
 	//find data
 	public void search() {	
+		//filter + data
+		String sql = filter_model.getSql();
+		data_list = data_model.getData(sql);
+		//Iterator<String> i = data_list.iterator();
+		
+		for(String data : data_list)
+			//output the imported data on the screen
+			System.out.print(data + "\n");
 	}
 	
 	//add filter
@@ -46,5 +58,9 @@ public class Controller {
 	
 	//set event Listener - ?
 	public void setEventListener() {
+	}
+	
+	//set bookmark - temporary
+	public void setBookmark() {
 	}
 }
