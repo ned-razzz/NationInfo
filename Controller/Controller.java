@@ -18,27 +18,29 @@ public class Controller {
 		data_model = new NationDataModel();
 		filter_model = new SearchFilterModel();
         view_client = new View();
+
+        view_client.run();
         
-        view_client.setSearchView();
-        //view_client.run();
         
         //test code
         Controller controll = new Controller();
-        //controll.addFilter("기후", "?", "온난");
-        //controll.deleteFilter("기후", "?", "온난");
-        //controll.search();
-        ButtonListener button = new ButtonListener(controll);
-        button.pushButton();
+        controll.addFilter("기후", "?", "온난");
+        controll.deleteFilter("기후", "?", "온난");
+        controll.search();
+        //ButtonListener button = new ButtonListener(controll);
+        //button.pushButton();
         System.out.print("성공\n");
+        
 	}
-	
+
 	//find data
 	public void search() {	
-		//filter + data
+		//get SQL sentence to get data
 		String sql = filter_model.getSql();
 		data_list = data_model.getData(sql);
 		//Iterator<String> i = data_list.iterator();
 		
+		//just test print
 		for(String data : data_list)
 			//output the imported data on the screen
 			System.out.print(data + "\n");
@@ -60,7 +62,7 @@ public class Controller {
 	
 	//set event Listener - ?
 	public void setEventListener() {
-		
+		//For now, pass
 	}
 	
 	//set bookmark - temporary
