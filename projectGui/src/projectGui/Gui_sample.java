@@ -2,7 +2,6 @@ package projectGui;
 
 import java.awt.Color;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
@@ -45,7 +44,7 @@ public class Gui_sample {
 	 */
 	private void initialize() {
 		main_Frame = new JFrame();
-		main_Frame.setBounds(100, 100, 840, 500);
+		main_Frame.setBounds(100, 100, 136, 556);
 		main_Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		main_Frame.setTitle("국정원");
 		main_Frame.getContentPane().setLayout(null);
@@ -61,7 +60,7 @@ public class Gui_sample {
 		
 		//검색창 이동 버튼
 		JButton searchPanel_Button = new JButton("");
-		searchPanel_Button.setIcon(new ImageIcon("C:\\Users\\dongdong\\eclipse-workspace\\projectGui\\images\\green_Earth.png"));
+		searchPanel_Button.setIcon(new ImageIcon("C:\\Users\\dongdong\\Desktop\\green_Earth.png"));
 		searchPanel_Button.setBounds(100, 240, 150, 130);
 		searchPanel_Button.setBorderPainted(false);
 		main_Panel.add(searchPanel_Button);
@@ -105,7 +104,7 @@ public class Gui_sample {
 		setup_Label.setBounds(750, 60, 40, 15);
 		main_Panel.add(setup_Label);
 		
-		JPanel setup_Panel = new JPanel();
+		/*JPanel setup_Panel = new JPanel();
 		setup_Panel.setBounds(0, 0, 824, 461);
 		main_Frame.getContentPane().add(setup_Panel);
 		setup_Panel.setLayout(null);
@@ -136,15 +135,15 @@ public class Gui_sample {
 		
 		JLabel gotomain_Label = new JLabel("Goto_Main");
 		gotomain_Label.setBounds(64, 436, 68, 15);
-		setup_Panel.add(gotomain_Label);
+		setup_Panel.add(gotomain_Label);*/
 		
 	
 		
 		//패널 클래스로 가져오기 좀더 연구
-		/*Setup_Panel1 setup_panel=new Setup_Panel1();
-		setup_panel.setVisible(true);
-		main_Frame.getContentPane().add(setup_panel);
-		main_Frame.pack();*/
+		Setup_Panel1 setup_Panel=new Setup_Panel1();
+		setup_Panel.setVisible(true);
+		main_Frame.getContentPane().add(setup_Panel);
+		main_Frame.pack();
 		
 		//설정창 진입 버튼 리스너
 		setup_Button.addActionListener(new ActionListener() {
@@ -154,12 +153,12 @@ public class Gui_sample {
 			}
 		});
 		
-		gotomain_Button.addActionListener(new ActionListener() {
+		/*setup_Panel.gotomain_Button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				main_Panel.setVisible(true);
 				setup_Panel.setVisible(false);
 			}
-		});
+		});*/
 		
 	}
 }

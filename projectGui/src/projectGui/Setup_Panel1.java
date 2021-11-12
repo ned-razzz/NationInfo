@@ -2,14 +2,20 @@ package projectGui;
 
 import java.awt.Dimension;
 import java.awt.Font;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import java.awt.event.*;
 
 public class Setup_Panel1 extends JPanel{
+	public JButton gotomain_Button;
+	public JComboBox language_Combobox;
+	public JComboBox fontsize_Combobox;
+	public JLabel language_Label;
+	public JLabel fontsize_Label;
+	public JLabel gotomain_Label;
 	
 	Setup_Panel1(){
 		
@@ -38,14 +44,22 @@ public class Setup_Panel1 extends JPanel{
 		fontsize_Label.setBounds(140, 132, 90, 35);
 		setup_Panel.add(fontsize_Label);
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\dongdong\\Desktop\\home_icon.jpg"));
-		btnNewButton.setBounds(70, 380, 45, 45);
-		setup_Panel.add(btnNewButton);
+		JButton gotomain_Button = new JButton("");
+		gotomain_Button.setIcon(new ImageIcon("C:\\Users\\dongdong\\Desktop\\home_icon.jpg"));
+		gotomain_Button.setBounds(70, 380, 45, 45);
+		
+		setup_Panel.add(gotomain_Button);
 		
 		JLabel gotomain_Label = new JLabel("Goto_Main");
 		gotomain_Label.setBounds(64, 436, 68, 15);
 		setup_Panel.add(gotomain_Label);
+		
+		gotomain_Button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//main_Panel.setVisible(true);
+				setup_Panel.setVisible(false);
+			}
+		});
 
 		
 	}
