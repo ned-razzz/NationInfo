@@ -19,9 +19,9 @@ public class Controller {
 		filter_model = new SearchFilterModel();
         view_client = new View();
 
-        view_client.run();
+        //view_client.run();
         
-        
+        /*
         //test code
         Controller controll = new Controller();
         controll.addFilter("기후", "?", "온난");
@@ -30,7 +30,7 @@ public class Controller {
         //ButtonListener button = new ButtonListener(controll);
         //button.pushButton();
         System.out.print("성공\n");
-        
+        */
 	}
 
 	//find data
