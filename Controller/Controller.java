@@ -60,7 +60,7 @@ public class Controller {
 		filter_model.delete(filter);
 	}
 	
-	//set event Listener - ?
+	//º¸·ù
 	public void setEventListener() {
 		//For now, pass
 	}
