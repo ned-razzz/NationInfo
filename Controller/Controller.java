@@ -1,7 +1,9 @@
 package Controller;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import Model.NationDataModel;
+import Model.SearchFilter;
+import Model.SearchFilterModel;
+
 import java.util.*;
 
 //Class for test controller
@@ -24,12 +26,12 @@ public class Controller {
         /*
         //test code
         Controller controll = new Controller();
-        controll.addFilter("±âÈÄ", "?", "¿Â³­");
-        controll.deleteFilter("±âÈÄ", "?", "¿Â³­");
+        controll.addFilter("ï¿½ï¿½ï¿½ï¿½", "?", "ï¿½Â³ï¿½");
+        controll.deleteFilter("ï¿½ï¿½ï¿½ï¿½", "?", "ï¿½Â³ï¿½");
         controll.search();
         //ButtonListener button = new ButtonListener(controll);
         //button.pushButton();
-        System.out.print("¼º°ø\n");
+        System.out.print("ï¿½ï¿½ï¿½ï¿½\n");
         */
 	}
 
@@ -37,7 +39,7 @@ public class Controller {
 	public void search() {	
 		//get SQL sentence to get data
 		String sql = filter_model.getSql();
-		data_list = data_model.getData(sql);
+//		data_list = data_model.getData(sql);
 		//Iterator<String> i = data_list.iterator();
 		
 		//just test print
@@ -60,7 +62,7 @@ public class Controller {
 		filter_model.delete(filter);
 	}
 	
-	//º¸·ù
+	//ï¿½ï¿½ï¿½ï¿½
 	public void setEventListener() {
 		//For now, pass
 	}
