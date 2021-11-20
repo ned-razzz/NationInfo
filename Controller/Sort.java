@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.*;
 
 
-public class Controller {
+public class Sort {
 	//private NationDataModel data_model
 	//private SearchFilterModel filter_model
 	//private View view-client
