@@ -1,4 +1,8 @@
-package View;
+package GUI;
+
+import View.PnMain;
+import View.PnSearch_main;
+import View.PnSetup;
 
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
@@ -61,7 +65,7 @@ public class Lessons {
 		frame.getContentPane().setLayout(null);
 		
 		//�����г� ��ü ����
-		PnMain pnMain = new PnMain();
+		View.PnMain pnMain = new PnMain();
 		//�����г� ��ü ����
 		PnSetup pnSetup = new PnSetup();
 		

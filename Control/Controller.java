@@ -2,21 +2,27 @@ package Control;
 
 import Model.NationDataModel;
 import Model.SearchFilterModel;
+import View.ViewFrame;
 
-import java.lang.reflect.Array;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+import javax.swing.text.View;
+
 
 
 public class Controller {
 	private NationDataModel data_model;
 	private SearchFilterModel filter_model;
-//	private View view_client;
-	public String[] sorted = new String[100];
+	private ViewFrame view_client;
+
+	public Controller() {
+		data_model = new NationDataModel();
+		filter_model = new SearchFilterModel();
+		view_client = new ViewFrame();
+		view_client.run();
+	}
+
+	public static void main(String args[]) {
+		Controller con = new Controller();
+
+	}
 
 }
