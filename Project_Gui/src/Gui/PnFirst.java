@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
+//ì²«í™”ë©´ì„ ë³´ì—¬ì£¼ëŠ” íŒ¨ë„ í´ë˜ìŠ¤
 public class PnFirst extends JPanel {
 
 	public PnFirst() {
@@ -21,31 +22,29 @@ public class PnFirst extends JPanel {
 		setVisible(true);
 		setBorder(new LineBorder(new Color(0,0,0), 2));
 		
-		//¸ŞÀÎ Å¸ÀÌÆ² ÅØ½ºÆ®
-		JLabel main_Title_label = new JLabel("Country Imformation Search");
+		//ë©”ì¸ íƒ€ì´í‹€ í…ìŠ¤íŠ¸
+		JLabel main_Title_label = new JLabel("");
+		main_Title_label.setIcon(new ImageIcon("./images/Pnfirst_Title.PNG"));
 		main_Title_label.setFont(new Font("Arial Black", Font.PLAIN, 19));
 		main_Title_label.setBounds(262, 39, 300, 90);
 		add(main_Title_label);
 		
-		//¼³Á¤ ÁøÀÔ ¹öÆ°
-//		JButton setup_Button = new JButton("");
-//		setup_Button.setForeground(Color.WHITE);
-//		setup_Button.setIcon(new ImageIcon("C:\\Users\\dongdong\\Desktop\\set_up_icon.png"));
-//		setup_Button.setBorderPainted(false);
-//		setup_Button.setBounds(750, 20, 40, 40);
-//		add(setup_Button);
-//		
-		//±¹°¡°Ë»öÁøÀÔ ÅØ½ºÆ®
-		JLabel countrysearch_Label = new JLabel("Country Search");
+	
+		//êµ­ê°€ê²€ìƒ‰ ì§„ì… í…ìŠ¤íŠ¸
+		JLabel countrysearch_Label = new JLabel("");
+		countrysearch_Label.setIcon(new ImageIcon("./images/CountrySearch_label.png"));
 		countrysearch_Label.setFont(new Font("Arial Black", Font.PLAIN, 12));
-		countrysearch_Label.setBounds(130, 370, 100, 20);
+		countrysearch_Label.setBounds(120, 370, 126, 20);
 		add(countrysearch_Label);
 		
-		//±¹°¡°ÔÀÓÁøÀÔ ÅØ½ºÆ®
-		JLabel countrygame_Label = new JLabel("Country Game");
+		//êµ­ê°€ê²Œì„ ì§„ì… í…ìŠ¤íŠ¸
+		JLabel countrygame_Label = new JLabel("");
+		countrygame_Label.setIcon(new ImageIcon("./images/CountryGame_label.png"));
 		countrygame_Label.setFont(new Font("Arial Black", Font.PLAIN, 12));
-		countrygame_Label.setBounds(600, 370, 100, 20);
+		countrygame_Label.setBounds(588, 370, 126, 20);
 		add(countrygame_Label);
+		
+		
 		
 		
 	}
