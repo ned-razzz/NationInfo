@@ -1,4 +1,4 @@
-package Gui;
+package View;
 
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
@@ -23,7 +23,7 @@ public class PnGame extends JPanel {
 		
 		JLabel gameLabel = new JLabel("국가 수도 게임");
 		gameLabel.setBounds(165, 72, 501, 123);
-		gameLabel.setIcon(new ImageIcon("./images/gameLable.png"));
+		gameLabel.setIcon(new ImageIcon("View/images/gameLable.png"));
 		gameLabel.setFont(new Font("굴림", Font.PLAIN, 18));
 		add(gameLabel);
 		

@@ -1,8 +1,8 @@
 package Model;
 
 public class SearchFilter {
-	public static String RIGHT_OPER = "+";
-	public static String NOT_OPER = "-";
+	public final static String RIGHT_OPER = "+";
+	public final static String NOT_OPER = "-";
 
 	private String type;
 	private String operation;

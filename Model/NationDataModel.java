@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class NationDataModel {
-	public static String SQL_BASIC = "select contry_code from nation";
-	public static String SQL_ALL = "select * from nation";
+	public final static String SQL_BASIC = "select contry_code from nation";
+	public final static String SQL_ALL = "select * from nation";
 
 	//특정 열 정보 전달
 	public ArrayList<String> getList() {
@@ -47,7 +47,6 @@ public class NationDataModel {
 		System.out.println(sql);
 
 		try {
-			//sql 작업
 			sql_res = Database.getInstance().executeSql(sql);
 			while (sql_res.next()) {
 				finded.add(sql_res.getString("contry_code"));
@@ -66,7 +65,6 @@ public class NationDataModel {
 		ResultSet sql_res = null; //sql 작업 리턴값
 		ArrayList<String> finded = new ArrayList<>();
 		try {
-			//sql 작업
 			sql_res = Database.getInstance().executeSql(sql);
 			while (sql_res.next()) {
 				finded.add(sql_res.getString("contry_code"));
@@ -85,7 +83,6 @@ public class NationDataModel {
 		ResultSet sql_res = null; //sql 작업 리턴값
 		ArrayList<String> finded = new ArrayList<>();
 		try {
-			//sql 작업
 			sql_res = Database.getInstance().executeSql(sql);
 			while (sql_res.next()) {
 				finded.add(sql_res.getString("contry_code"));
@@ -103,7 +100,6 @@ public class NationDataModel {
 		ResultSet sql_res = null;
 		String sql = String.format("select contry from nation where contry_code='%s'", contry_code);
 		try {
-			//sql 작업
 			sql_res = Database.getInstance().executeSql(sql);
 			sql_res.next();
 			contry_name = sql_res.getString("contry");

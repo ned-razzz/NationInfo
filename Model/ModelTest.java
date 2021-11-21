@@ -1,16 +1,18 @@
 package Model;
 
+import Control.Controller;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
-public class TestControl {
+public class ModelTest {
     NationDataModel data_model = new NationDataModel();
 
     //test code
     public static void main(String[] arg) throws SQLException {
-        TestControl test = new TestControl();
-        test.testFilter();
+        ModelTest test = new ModelTest();
     }
 
     public void testGetColumn() {
@@ -38,4 +40,16 @@ public class TestControl {
         ArrayList<String> nations = data_model.find(filterModel);
         nations.stream().forEach(nation -> {System.out.println(data_model.getName(nation) + " : " + nation);});
     }
+
+
+    public void testSort() {
+        String[] arr = {"뷁", "궳쉗", "답섭궨", "뷁가", "난동", "다람쥐", "라일락", "마즙", "바보", "사과", "아저씨", "자석", "차", "카레", "타조", "하마"};
+        ArrayList<String> list = new ArrayList<>();
+        list.addAll(Arrays.asList(arr));
+        System.out.println("===");
+        list = SortModel.sort(list);
+        System.out.println("===");
+        list.stream().forEach(item -> {System.out.print(item + " ");});
+    }
+
 }

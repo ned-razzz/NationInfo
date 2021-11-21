@@ -1,7 +1,6 @@
-package highClassProject;
+package View;
 
 import java.awt.Font;
-import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,21 +10,23 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+//설정패널
 public class PnSetup extends JPanel {
 
-	JComboBox language_Combobox;
-	JLabel language_Label;
-	JComboBox fontsize_Combobox;
+	JComboBox language_Combobox; //언어 선택 콤보박스
+	JLabel language_Label; 
+	JComboBox fontsize_Combobox; //폰트사이즈 콤보박스
 	JLabel fontsize_Label;
-	JButton gotomain_Button;
+	JButton gotomain_Button; //메인으로 돌아가는 버튼
 	JLabel gotomain_Label;
 	
 	public PnSetup() {
-		// TODO Auto-generated constructor stub
+		//기본설정
 		setVisible(false);
 		setBounds(0, 0, 824, 461);
 		setLayout(null);
 		
+		//언어선택 콤보박스
 		JComboBox language_Combobox = new JComboBox();
 		language_Combobox.setBounds(260, 50, 480, 35);
 		add(language_Combobox);
@@ -35,6 +36,7 @@ public class PnSetup extends JPanel {
 		language_Label.setBounds(140, 50, 90, 35);
 		add(language_Label);
 		
+		//폰트사이즈 콤보박스
 		JComboBox fontsize_Combobox = new JComboBox();
 		fontsize_Combobox.setBounds(260, 130, 480, 35);
 		add(fontsize_Combobox);
@@ -44,8 +46,9 @@ public class PnSetup extends JPanel {
 		fontsize_Label.setBounds(140, 132, 90, 35);
 		add(fontsize_Label);
 		
+		//메인으로 돌아가는 버튼
 		JButton gotomain_Button = new JButton("");
-		gotomain_Button.setIcon(new ImageIcon("C:\\Users\\dongdong\\Desktop\\home_icon.jpg"));
+		gotomain_Button.setIcon(new ImageIcon("View/images/home_icon.jpg"));
 		gotomain_Button.setBounds(70, 380, 45, 45);
 		add(gotomain_Button);
 		
@@ -53,10 +56,10 @@ public class PnSetup extends JPanel {
 		gotomain_Label.setBounds(64, 436, 68, 15);
 		add(gotomain_Label);
 		
+		//메인으로 돌아가는 버튼리스너
 		gotomain_Button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				selfclose();
-				//�����гΰ� �������� �κ�
 			}
 		});
 	}

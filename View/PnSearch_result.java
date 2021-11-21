@@ -1,4 +1,4 @@
-package Gui;
+package View;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -40,37 +40,37 @@ public class PnSearch_result extends JPanel {
 		
 		//주요국가 버튼
 		JButton a_major_city_Button = new JButton("a_major_city");
-		a_major_city_Button.setIcon(new ImageIcon("./images/major_city.png"));
+		a_major_city_Button.setIcon(new ImageIcon("View/images/major_city.png"));
 		a_major_city_Button.setBounds(0, 270, 130, 45);
 		Country_Imformation_Button_Panel.add(a_major_city_Button);
 		
 		//한눈에 보기 버튼
 		JButton at_a_look_Button = new JButton("at a look");
-		at_a_look_Button.setIcon(new ImageIcon("./images/at_a_look_button2.png"));
+		at_a_look_Button.setIcon(new ImageIcon("View/images/at_a_look_button2.png"));
 		at_a_look_Button.setBounds(0, 22, 130, 45);
 		Country_Imformation_Button_Panel.add(at_a_look_Button);
 		
 		//국가 정보 버튼
 		JButton country_Button = new JButton("Country");
-		country_Button.setIcon(new ImageIcon("./images/contry_button.png"));
+		country_Button.setIcon(new ImageIcon("View/images/contry_button.png"));
 		country_Button.setBounds(0, 73, 130, 45);
 		Country_Imformation_Button_Panel.add(country_Button);
 		
 		//수도 정보 버튼
 		JButton capital_Button = new JButton("Capital");
-		capital_Button.setIcon(new ImageIcon("./images/capital.png"));
+		capital_Button.setIcon(new ImageIcon("View/images/capital.png"));
 		capital_Button.setBounds(0, 123, 130, 45);
 		Country_Imformation_Button_Panel.add(capital_Button);
 		
 		//기후 정보 버튼
 		JButton climate_Button = new JButton("Climate");
-		climate_Button.setIcon(new ImageIcon("./images/climate.png"));
+		climate_Button.setIcon(new ImageIcon("View/images/climate.png"));
 		climate_Button.setBounds(0, 173, 130, 45);
 		Country_Imformation_Button_Panel.add(climate_Button);
 		
 		//위치 정보 버튼
 		JButton location_Button = new JButton("Location");
-		location_Button.setIcon(new ImageIcon("./images/Location.png"));
+		location_Button.setIcon(new ImageIcon("View/images/Location.png"));
 		location_Button.setBounds(0, 222, 130, 45);
 		Country_Imformation_Button_Panel.add(location_Button);
 		
