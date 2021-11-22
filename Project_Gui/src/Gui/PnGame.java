@@ -14,9 +14,8 @@ import java.awt.Font;
 
 public class PnGame extends JPanel {
 
-	/**
-	 * Create the panel.
-	 */
+	
+	//이건아직
 	public PnGame() {
 		this.setBounds(0, 0, 824, 461);
 		setLayout(null);

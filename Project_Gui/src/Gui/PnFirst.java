@@ -14,6 +14,8 @@ import javax.swing.border.LineBorder;
 
 //첫화면을 보여주는 패널 클래스
 public class PnFirst extends JPanel {
+	JButton searchPanel_Button = new JButton("");
+	JButton gamePanel_Button = new JButton("");
 
 	public PnFirst() {
 		setBounds(0, 0, 824, 461);
@@ -43,6 +45,20 @@ public class PnFirst extends JPanel {
 		countrygame_Label.setFont(new Font("Arial Black", Font.PLAIN, 12));
 		countrygame_Label.setBounds(588, 370, 126, 20);
 		add(countrygame_Label);
+		
+		//pnFirst패널에 있는 버튼 생성 -> 이거는 옮기는게 나을듯
+				
+				searchPanel_Button.setIcon(new ImageIcon("./images/green_Earth.png"));
+				searchPanel_Button.setBounds(100, 240, 150, 130);
+				searchPanel_Button.setBorderPainted(false);
+				add(searchPanel_Button);
+				
+				//pnFirst패널에 있는 버튼 생성 -> 이거는 옮기는게 나을듯
+				
+				gamePanel_Button.setIcon(new ImageIcon("./images/blue_Earth.png"));
+				gamePanel_Button.setBounds(574, 240, 150, 130);
+				gamePanel_Button.setBorderPainted(false);
+				add(gamePanel_Button);
 		
 		
 		
