@@ -1,7 +1,6 @@
-package View;
+package GUI;
 
 import java.awt.Font;
-import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -49,7 +48,7 @@ public class PnSetup extends JPanel {
 		
 		//메인으로 돌아가는 버튼
 		JButton gotomain_Button = new JButton("");
-		gotomain_Button.setIcon(new ImageIcon("./images/home_icon.jpg"));
+		gotomain_Button.setIcon(new ImageIcon("View/images/home_icon.jpg"));
 		gotomain_Button.setBounds(70, 380, 45, 45);
 		add(gotomain_Button);
 		
@@ -68,4 +67,5 @@ public class PnSetup extends JPanel {
 	private void selfclose() {
 		this.setVisible(false);
 	}
+
 }

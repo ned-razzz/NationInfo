@@ -154,6 +154,5 @@ public class PnSearch_result extends JPanel {
 		
 		
 	}
-	
-	
+
 }

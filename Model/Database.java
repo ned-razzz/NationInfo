@@ -18,7 +18,7 @@ public class Database {
         server_ip = "localhost";
         db_name = "contacts";
         user_id = "root";
-        passwd = "kmw0522";
+        passwd = "1234";
         con = connectDB(server_ip, db_name, user_id, passwd);
     }
 

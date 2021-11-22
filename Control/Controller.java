@@ -1,6 +1,7 @@
 package Control;
 
 import Model.NationDataModel;
+
 import Model.SearchFilter;
 import Model.SearchFilterModel;
 import Model.SortModel;
@@ -10,7 +11,6 @@ import java.awt.geom.Area;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.ArrayBlockingQueue;
-
 import javax.swing.text.View;
 
 
@@ -70,6 +70,4 @@ public class Controller {
 		for(int i = 0; i < result.size(); i++) {
 			System.out.println(result.get(i));
 		}
-	}
-
 }
