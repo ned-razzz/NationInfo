@@ -17,12 +17,15 @@ public class Controller {
 		data_model = new NationDataModel();
 		filter_model = new SearchFilterModel();
 		view_client = new ViewFrame();
-		view_client.run();
+	}
+
+	public void run() {
+		view_client.launch();
 	}
 
 	public static void main(String args[]) {
 		Controller con = new Controller();
-
+		con.run();
 	}
 
 }

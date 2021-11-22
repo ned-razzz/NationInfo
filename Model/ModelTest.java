@@ -13,6 +13,7 @@ public class ModelTest {
     //test code
     public static void main(String[] arg) throws SQLException {
         ModelTest test = new ModelTest();
+        test.testFilter();
     }
 
     public void testGetColumn() {

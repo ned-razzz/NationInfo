@@ -39,11 +39,5 @@ public class PnFirst extends JPanel {
 		countrygame_Label.setFont(new Font("Arial Black", Font.PLAIN, 12));
 		countrygame_Label.setBounds(588, 370, 126, 20);
 		add(countrygame_Label);
-		
-		
-		
-		
 	}
-
-
 }
