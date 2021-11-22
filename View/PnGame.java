@@ -14,16 +14,15 @@ import java.awt.Font;
 
 public class PnGame extends JPanel {
 
-	/**
-	 * Create the panel.
-	 */
+	
+	//이건아직
 	public PnGame() {
 		this.setBounds(0, 0, 824, 461);
 		setLayout(null);
 		
 		JLabel gameLabel = new JLabel("국가 수도 게임");
 		gameLabel.setBounds(165, 72, 501, 123);
-		gameLabel.setIcon(new ImageIcon("View/images/gameLable.png"));
+		gameLabel.setIcon(new ImageIcon("./images/gameLable.png"));
 		gameLabel.setFont(new Font("굴림", Font.PLAIN, 18));
 		add(gameLabel);
 		

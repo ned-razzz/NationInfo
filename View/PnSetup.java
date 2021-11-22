@@ -1,6 +1,7 @@
 package View;
 
 import java.awt.Font;
+import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,8 +14,10 @@ import javax.swing.JPanel;
 //설정패널
 public class PnSetup extends JPanel {
 
-	JComboBox lang_select; //언어 선택 콤보박스
-	JComboBox fontsize_select; //폰트사이즈 콤보박스
+	JComboBox language_Combobox; //언어 선택 콤보박스
+	JLabel language_Label; 
+	JComboBox fontsize_Combobox; //폰트사이즈 콤보박스
+	JLabel fontsize_Label;
 	JButton gotomain_Button; //메인으로 돌아가는 버튼
 	JLabel gotomain_Label;
 	
@@ -25,19 +28,19 @@ public class PnSetup extends JPanel {
 		setLayout(null);
 		
 		//언어선택 콤보박스
-		lang_select = new JComboBox();
-		lang_select.setBounds(260, 50, 480, 35);
-		add(lang_select);
+		JComboBox language_Combobox = new JComboBox();
+		language_Combobox.setBounds(260, 50, 480, 35);
+		add(language_Combobox);
 		
-		JLabel lang_label = new JLabel("Language");
-		lang_label.setFont(new Font("Arial Black", Font.PLAIN, 14));
-		lang_label.setBounds(140, 50, 90, 35);
-		add(lang_label);
+		JLabel language_Label = new JLabel("Language");
+		language_Label.setFont(new Font("Arial Black", Font.PLAIN, 14));
+		language_Label.setBounds(140, 50, 90, 35);
+		add(language_Label);
 		
 		//폰트사이즈 콤보박스
-		fontsize_select = new JComboBox();
-		fontsize_select.setBounds(260, 130, 480, 35);
-		add(fontsize_select);
+		JComboBox fontsize_Combobox = new JComboBox();
+		fontsize_Combobox.setBounds(260, 130, 480, 35);
+		add(fontsize_Combobox);
 		
 		JLabel fontsize_Label = new JLabel("FontSize");
 		fontsize_Label.setFont(new Font("Arial Black", Font.PLAIN, 14));
@@ -45,34 +48,24 @@ public class PnSetup extends JPanel {
 		add(fontsize_Label);
 		
 		//메인으로 돌아가는 버튼
-		JButton gotomain_Button = gotomainButton();
+		JButton gotomain_Button = new JButton("");
+		gotomain_Button.setIcon(new ImageIcon("./images/home_icon.jpg"));
+		gotomain_Button.setBounds(70, 380, 45, 45);
 		add(gotomain_Button);
 		
-		JLabel gotomain_Label = gotomainLabel();
+		JLabel gotomain_Label = new JLabel("    Close");
+		gotomain_Label.setBounds(64, 436, 68, 15);
 		add(gotomain_Label);
-
-	}
-	
-	private JButton gotomainButton() {
-		JButton button = new JButton("");
-		button.setIcon(new ImageIcon("./images/home_icon.jpg"));
-		button.setBounds(70, 380, 45, 45);
-		button.addActionListener(new ActionListener() {
+		
+		//메인으로 돌아가는 버튼리스너
+		gotomain_Button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				selfclose();
 			}
 		});
-		return button;
-	}
-
-	private JLabel gotomainLabel() {
-		JLabel label = new JLabel("    Close");
-		label.setBounds(64, 436, 68, 15);
-		return label;
 	}
 	
 	private void selfclose() {
 		this.setVisible(false);
 	}
-
 }
