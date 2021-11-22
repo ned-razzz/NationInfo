@@ -5,18 +5,11 @@ import Model.SearchFilter;
 import java.util.*;
 
 public class SearchFilterModel {
-	public final static String ORDER_ASCEND = "ASC";
-	public final static String ORDER_DESCEND = "DESC";
 
 	private ArrayList<SearchFilter> filter_list;
-	private HashMap<String, String> sort_setting; //type과 order를 키로 가지며, 각각 정렬할 타입과 정렬 방향을 결정한다.
 	
 	public SearchFilterModel() {
 		filter_list = new ArrayList<SearchFilter>();
-		sort_setting = new HashMap<String, String>() {{
-			put("type", "contry_code");
-			put("order", ORDER_ASCEND);
-		}};
 	}
 	
 	//filter list modification
@@ -51,12 +44,6 @@ public class SearchFilterModel {
 		return false;
 	}
 
-	//정렬 기준 설정
-	public void setSort(String type, String order) {
-		sort_setting.put("type", type);
-		sort_setting.put("order", order);
-	}
-
 	//create sql
 	public String getSql() {
 		String sql = "";
@@ -65,7 +52,6 @@ public class SearchFilterModel {
 			sql += " AND ";
 		}
 		sql = sql.substring(0, sql.length()-5); // 마지막 AND 문 삭제
-		sql += String.format(" order by %s %s", sort_setting.get("type"), sort_setting.get("order"));
 		return sql;
 	}
 
