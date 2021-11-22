@@ -7,8 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class NationDataModel {
-    public final static String PRIMARY_KEY = "contry";
-	public final static String SQL_BASIC = "select" + PRIMARY_KEY + " from nation";
+    public final static Schema PRIMARY_KEY = Schema.NAME;
 	public final static String SQL_ALL = "select * from nation";
 
 	//특정 열 정보 전달
@@ -17,10 +16,12 @@ public class NationDataModel {
 	}
 
 	//특정 행 정보 전달
-	public HashMap<String, String> getColumn_contry(String key) {
+	public HashMap<String, String> getColumn(String content) {
+
+
 		ResultSet sql_res = null; //sql 작업 리턴값
 		HashMap<String, String> res_data = new HashMap<>(); //최종 결과값
-		String sql = String.format(SQL_ALL + " where %s='%s'", PRIMARY_KEY, key);
+		String sql = String.format(SQL_ALL + " where %s='%s'", PRIMARY_KEY, content);
 
 		try {
 			//sql 작업
@@ -40,36 +41,17 @@ public class NationDataModel {
 		return res_data;
 	}
 	
-	//해당 값이 포함되어 있는 나라들을 추출
-	public ArrayList<String> find_contry(String type, String value) {
-		ResultSet sql_res = null; //sql 작업 리턴값
-		ArrayList<String> finded = new ArrayList<>();
-		String sql = String.format(SQL_BASIC + " where %s like '%%%s%%'", type, value);
+	//특정 조건의 column들만을 추출
+	//추출된 table에서 나라 이름과 원하는 res_type 값만을 key-value화 시켜, hashmap 형태로 반환
+	public HashMap<String, String> find(SearchFilter filter, Schema res_type) {
+		HashMap<String, String> finded = new HashMap<>();
+		String sql = String.format("select %s, %s from nation where %s", PRIMARY_KEY, res_type, filter.getSql());
 		System.out.println(sql);
 
 		try {
-			sql_res = Database.getInstance().executeSql(sql);
+			ResultSet sql_res = Database.getInstance().executeSql(sql);
 			while (sql_res.next()) {
-				finded.add(sql_res.getString(PRIMARY_KEY));
-			}
-		}
-		catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return finded;
-	}
-  
-  
-	public ArrayList<String> find_contry(SearchFilter filter) {
-		String sql = String.format(SQL_BASIC + " where %s", filter.getSql());
-		System.out.println(sql);
-
-		ResultSet sql_res = null; //sql 작업 리턴값
-		ArrayList<String> finded = new ArrayList<>();
-		try {
-			sql_res = Database.getInstance().executeSql(sql);
-			while (sql_res.next()) {
-				finded.add(sql_res.getString(PRIMARY_KEY));
+				finded.put(sql_res.getString(PRIMARY_KEY.toString()), sql_res.getString(res_type.toString()));
 			}
 		}
 		catch (SQLException e) {
@@ -78,16 +60,15 @@ public class NationDataModel {
 		return finded;
 	}
 	
-	public ArrayList<String> find_contry(SearchFilterModel filter) {
-		String sql = String.format(SQL_BASIC + " where %s", filter.getSql());
+	public HashMap<String, String> find(SearchFilterModel filter, Schema target) {
+		HashMap<String, String> finded = new HashMap<>();
+		String sql = String.format("select %s, %s from nation where %s", PRIMARY_KEY, target, filter.getSql());
 		System.out.println(sql);
 
-		ResultSet sql_res = null; //sql 작업 리턴값
-		ArrayList<String> finded = new ArrayList<>();
 		try {
-			sql_res = Database.getInstance().executeSql(sql);
+			ResultSet sql_res = Database.getInstance().executeSql(sql);
 			while (sql_res.next()) {
-				finded.add(sql_res.getString(PRIMARY_KEY));
+				finded.put(sql_res.getString(PRIMARY_KEY.toString()), sql_res.getString(target.toString()));
 			}
 		}
 		catch (SQLException e) {
@@ -96,24 +77,7 @@ public class NationDataModel {
 		return finded;
 	}
 
-	public String getName(String key) {
-		String contry_name = null;
-
-		ResultSet sql_res = null;
-		String sql = String.format("select contry from nation where %s='%s'", PRIMARY_KEY, key);
-		try {
-			sql_res = Database.getInstance().executeSql(sql);
-			sql_res.next();
-			contry_name = sql_res.getString(PRIMARY_KEY);
-		}
-		catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		return contry_name;
-	}
-
-	public ResultSet sqlData(String sql) {
+	public ResultSet sql(String sql) {
 		ResultSet sql_result = null;
 		try {
 			sql_result = Database.getInstance().executeSql(sql);

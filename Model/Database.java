@@ -14,6 +14,7 @@ public class Database {
     private String passwd;
     private Connection con;
 
+
     private Database() {
         server_ip = "localhost";
         db_name = "contacts";

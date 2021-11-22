@@ -4,17 +4,17 @@ public class SearchFilter {
 	public final static String RIGHT_OPER = "+";
 	public final static String NOT_OPER = "-";
 
-	private String type;
+	private Schema type;
 	private String operation;
 	private String content;
 
-	public SearchFilter(String ty, String op, String con) {
+	public SearchFilter(Schema ty, String op, String con) {
 		type = ty;
 		operation = op;
 		content = con;
 	}
 
-	public String getType() {
+	public Schema getType() {
 		return type;
 	}
 
@@ -27,7 +27,7 @@ public class SearchFilter {
 	}
 
 	public String getSql() {
-		String where_sql = String.format("%s {op} '%%%s%%'", getType(), getContent());
+		String where_sql = String.format("%s {op} '%%%s%%'", type, content);
 
 		if (operation.equals(SearchFilter.RIGHT_OPER)) {
 			where_sql = where_sql.replace("{op}", "like");
