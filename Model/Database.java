@@ -16,7 +16,7 @@ public class Database {
 
 
     private Database() {
-        server_ip = "192.168.219.102:3306";
+        server_ip = "49.169.61.84:3306";
         db_name = "contacts";
         user_id = "contacter";
         passwd = "1234";
