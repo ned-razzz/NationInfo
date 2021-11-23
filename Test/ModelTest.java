@@ -13,7 +13,7 @@ public class ModelTest {
     //test code
     public static void main(String[] arg) throws SQLException {
         ModelTest test = new ModelTest();
-        test.testFilter();
+        test.testGetColumnList();
     }
 
     public void testGetColumn() {
@@ -24,13 +24,14 @@ public class ModelTest {
         System.out.println("====================");
     }
 
-    public void testFind() {
-        String test_content = "지중해";
-        System.out.println("search climate: " + test_content);
-        HashMap<String, String> data_map;
-        data_map = data_model.find(new SearchFilter(Schema.CLIMATE, SearchFilter.RIGHT_OPER, test_content), Schema.CLIMATE); //SearchFilter find 메소드
-        data_map.entrySet().stream().forEach(entry -> {
-            System.out.printf("%s : %s\n", entry.getKey(), entry.getValue());
+    public void testGetColumnList() {
+        SearchFilterModel filter_model = new SearchFilterModel();
+        filter_model.add(new SearchFilter(Schema.LOC, SearchFilter.RIGHT_OPER, "유럽"));
+        ArrayList<String> data_map = data_model.find(filter_model);
+
+        HashMap<String, HashMap<String, String>> res_datas = data_model.getColumnList(data_map); //SearchFilter find 메소드
+        res_datas.entrySet().stream().forEach(entry -> {
+            System.out.printf("%s : %s\n", entry.getKey(), entry.getValue().get(Schema.CLIMATE.toString()));
         });
     }
 
@@ -39,9 +40,9 @@ public class ModelTest {
         filter_model.add(new SearchFilter(Schema.LOC, SearchFilter.RIGHT_OPER, "유럽"));
         filter_model.add(new SearchFilter(Schema.RELIGION, SearchFilter.NOT_OPER, "가톨릭"));
         System.out.println(filter_model.getSql());
-        HashMap<String, String> data_map = data_model.find(filter_model, Schema.LANG);
-        data_map.entrySet().stream().forEach(entry -> {
-            System.out.printf("%s : %s\n", entry.getKey(), entry.getValue());
+        ArrayList<String> data_map = data_model.find(filter_model);
+        data_map.stream().forEach(name -> {
+            System.out.printf("%s\n", name);
         });
     }
 
