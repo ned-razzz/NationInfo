@@ -1,20 +1,14 @@
-package View;
+package View.Searchpage;
 
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.HashMap;
 
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 
 import Control.Controller;
-import Model.NationDataModel;
 
 import javax.swing.ImageIcon;
 
@@ -101,9 +95,9 @@ public class PnSearch_result extends JPanel {
 
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText(null);
-				con.get_ColumnInfo().entrySet().stream().forEach(entry -> {
-		            textArea.append("● " + entry.getKey() + "\t" + entry.getValue() + "\n");
-		        });
+//				con.get_ColumnInfo().entrySet().stream().forEach(entry -> {
+//		            textArea.append("● " + entry.getKey() + "\t" + entry.getValue() + "\n");
+//		        });
 				
 			}
 		});
@@ -112,9 +106,9 @@ public class PnSearch_result extends JPanel {
 
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText(null);
-				con.get_ColumnInfo().entrySet().stream().filter(entry -> entry.getKey().equals("major_cities")).forEach(entry -> {
-					textArea.append("● " + entry.getKey() + ": " + entry.getValue());
-		        });
+//				con.get_ColumnInfo().entrySet().stream().filter(entry -> entry.getKey().equals("major_cities")).forEach(entry -> {
+//					textArea.append("● " + entry.getKey() + ": " + entry.getValue());
+//		        });
 				
 			}
 		});
@@ -123,9 +117,9 @@ public class PnSearch_result extends JPanel {
 
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText(null);
-				con.get_ColumnInfo().entrySet().stream().filter(entry -> entry.getKey().equals("capital")).forEach(entry -> {
-					textArea.append("● " + entry.getKey() + ": " + entry.getValue());
-		        });
+//				con.get_ColumnInfo().entrySet().stream().filter(entry -> entry.getKey().equals("capital")).forEach(entry -> {
+//					textArea.append("● " + entry.getKey() + ": " + entry.getValue());
+//		        });
 				
 			}
 		});
@@ -134,9 +128,9 @@ public class PnSearch_result extends JPanel {
 
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText(null);
-				con.get_ColumnInfo().entrySet().stream().filter(entry -> entry.getKey().equals("climate")).forEach(entry -> {
-					textArea.append("● " + entry.getKey() + ": " + entry.getValue());
-		        });
+//				con.get_ColumnInfo().entrySet().stream().filter(entry -> entry.getKey().equals("climate")).forEach(entry -> {
+//					textArea.append("● " + entry.getKey() + ": " + entry.getValue());
+//		        });
 				
 			}
 		});
@@ -145,9 +139,9 @@ public class PnSearch_result extends JPanel {
 
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText(null);
-				con.get_ColumnInfo().entrySet().stream().filter(entry -> entry.getKey().equals("location")).forEach(entry -> {
-					textArea.append("● " + entry.getKey() + ": " + entry.getValue());
-		        });
+//				con.get_ColumnInfo().entrySet().stream().filter(entry -> entry.getKey().equals("location")).forEach(entry -> {
+//					textArea.append("● " + entry.getKey() + ": " + entry.getValue());
+//		        });
 				
 			}
 		});

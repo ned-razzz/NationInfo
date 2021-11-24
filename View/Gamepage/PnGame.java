@@ -1,4 +1,4 @@
-package View;
+package View.Gamepage;
 
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;

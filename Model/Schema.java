@@ -15,7 +15,6 @@ public enum Schema {
     SIZE_COMP("area_inst"),
     LANG("lang");
 
-
     private final String type;
 
     private Schema(String type) {

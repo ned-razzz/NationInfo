@@ -1,15 +1,6 @@
 package View;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JFrame;
-import javax.swing.JLayeredPane;
-import javax.swing.JButton;
-
-import java.awt.Color;
-import javax.swing.ImageIcon;
-import javax.swing.JTable;
+import javax.swing.*;
 
 
 public class ViewFrame extends JFrame {
@@ -18,14 +9,17 @@ public class ViewFrame extends JFrame {
 	public final static int HEIGHT = 500;
 	public final static String TITLE = "Nation Data Search Program";
 
-	private Setup setup;
+	private SetupPage setup_panel;
+	private ManagePages main_panel;
 	
 	/**
 	 * Create the application.
 	 */
 	public ViewFrame() {
-		setup = new Setup();
-		initialize();
+		setup_panel = new SetupPage();
+		main_panel = new ManagePages();
+		setWindowFrame();
+		constructComponents();
 	}
 
 	/**
@@ -38,34 +32,37 @@ public class ViewFrame extends JFrame {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void setWindowFrame() {
 		setTitle(TITLE);
 		setBounds(0, 0, WIDTH, HEIGHT);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
+	}
 
-		PnMain pnMain = new PnMain();
-		
-		PnSetup setup_pane = setup.getSetupPane();
-		JButton setup_Button = setup.getSetupButton();
-		setup_Button.setBounds(741, 10, 40, 40);
-		
+	private void constructComponents() {
+		JButton setup_button = setup_panel.getSetupBtn();
+		JButton return_main_button = main_panel.getMainPanel().getGobackButton();
+
 		//UI에 추가
-		getContentPane().add(pnMain);
-		getContentPane().add(setup_pane);
-		getContentPane().add(setup_Button);
+		getContentPane().add(main_panel);
+		getContentPane().add(setup_panel);
+		getContentPane().add(setup_button);
+		getContentPane().add(return_main_button);
 
 		//UI 요소 계층화 : 설정 버튼 및 설정창은 최상단에 위치
 		JLayeredPane jlp = getLayeredPane();
-		jlp.add(pnMain, JLayeredPane.DEFAULT_LAYER);
-		jlp.add(setup_Button, JLayeredPane.PALETTE_LAYER); //�ٸ�â�� �����ص� ������ư�� ���̵��� ���̾ƿ� ����
-		jlp.add(setup_pane, JLayeredPane.MODAL_LAYER);
+		jlp.add(main_panel, JLayeredPane.DEFAULT_LAYER);
+		jlp.add(setup_button, JLayeredPane.PALETTE_LAYER);
+		jlp.add(return_main_button, JLayeredPane.PALETTE_LAYER);
+		jlp.add(setup_panel, JLayeredPane.MODAL_LAYER);
 
+		setup_button.setVisible(true);
+		main_panel.setVisible(true);
+	}
 
-		setup_Button.setVisible(true);
-		pnMain.setVisible(true);
-
+	public ManagePages getMainPanel() {
+		return main_panel;
 	}
 }

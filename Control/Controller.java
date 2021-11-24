@@ -1,73 +1,72 @@
 package Control;
 
-import Model.NationDataModel;
-
-import Model.SearchFilter;
-import Model.SearchFilterModel;
-import Model.SortModel;
+import Model.*;
+import View.Searchpage.SimpleSearch;
 import View.ViewFrame;
 
-import java.awt.geom.Area;
-import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.HashMap;
-import java.util.concurrent.ArrayBlockingQueue;
-import javax.swing.text.View;
-
 
 
 public class Controller {
 	public NationDataModel data_model;
-	//private SearchFilterModel filter_model;
-	//private ViewFrame view_client;*/
-	
-	static String field_str = "";
+	private SearchFilterModel filter_model;
+	private ViewFrame view_client;
 
 	public Controller() {
 		data_model = new NationDataModel();
-		//filter_model = new SearchFilterModel();
-		//view_client = new ViewFrame();
+		filter_model = new SearchFilterModel();
+		view_client = new ViewFrame();
 	}
-	
-	public void set_str(String str) {
-		field_str = str;
+
+	/**
+	* main method: Run whole program
+	 */
+	public static void main(String args[]) {
+		Controller con = new Controller();
+		con.handler();
+		con.run();
 	}
-	public HashMap<String, String> get_ColumnInfo() {
-		HashMap<String, String> temp = data_model.getColumn_contry(field_str);
-		return temp;
+
+	public void run() {
+		view_client.launch();
 	}
-	
+
+	public void handler() {
+		SimpleSearch search_panel =  view_client.getMainPanel().getSearchPanel().getSimpleSearch();
+		HashMap<String, ActionListener> button_handler = new HashMap<>();
+		button_handler.put("execute", new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				HashMap<String, String> result_data = data_model.getColumn(search_panel.getSearchText());
+				//테스트 메소드
+				result_data.entrySet().stream().forEach(entry -> {
+					System.out.printf("%s : %s\n", entry.getKey(), entry.getValue());
+				});
+				System.out.println("=================");
+			}
+		});
+		search_panel.setBtnListener(button_handler);
+	}
+
+	/*
 	public ArrayList<String> detail_search(String[] key, ArrayList<String> value){
 		ArrayList<String> result = new ArrayList<>();
 		SortModel sort = new SortModel();
 		SearchFilterModel filter = new SearchFilterModel();
 		NationDataModel nation = new NationDataModel();
-		
-		
+
 		for(int i = 0; i < 5; i++) {
 			if(!(value.get(i) == null)) {
 				filter.add(new SearchFilter(key[i], SearchFilter.RIGHT_OPER, value.get(i)));
 			}
 		}
-		result = nation.find_contry(filter);
+		result = nation.find(filter);
 		result = sort.sort(result);
 		return result;
-		
+
 	}
+	 */
 
-	public static void main(String args[]) {
-
-		Controller con = new Controller();
-		
-		String[] key = {"climate", "religion", "contry_code", "location", "area"};
-		ArrayList<String> value = new ArrayList<>();
-		value.add(null);
-		value.add("기독교");
-		value.add(null);
-		value.add("아시아");
-		value.add(null);
-		
-		ArrayList<String> result = con.detail_search(key, value);
-		for(int i = 0; i < result.size(); i++) {
-			System.out.println(result.get(i));
-		}
 }

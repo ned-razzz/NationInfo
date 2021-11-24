@@ -2,6 +2,7 @@ package Test;
 
 import Model.*;
 
+import java.awt.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,8 +13,9 @@ public class ModelTest {
 
     //test code
     public static void main(String[] arg) throws SQLException {
-        ModelTest test = new ModelTest();
-        test.testGetColumnList();
+//        ModelTest test = new ModelTest();
+        System.out.println("\u001B[31m" + "visitPanel(): invalid penal");
+        System.out.println("\t" + "\u001B[31m" + "at PnMain Class");
     }
 
     public void testGetColumn() {
