@@ -1,5 +1,7 @@
 package Model;
 
+import Enums.Schema;
+
 public class SearchFilter {
 	public final static String RIGHT_OPER = "+";
 	public final static String NOT_OPER = "-";
@@ -40,9 +42,19 @@ public class SearchFilter {
 	}
 
 	@Override
+	public int hashCode() {
+		int c = 31;
+		int hashcode = type.hashCode();
+		hashcode = c * hashcode + operation.hashCode();
+		hashcode = c * hashcode + content.hashCode();
+		return hashcode;
+	}
+
+	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof SearchFilter && obj != null) {
-			return type == ((SearchFilter) obj).getType() && operation == ((SearchFilter) obj).getOper() && content == ((SearchFilter) obj).getContent();
+			SearchFilter filter = (SearchFilter) obj;
+			return type.equals(filter.getType()) && operation.equals(filter.getOper()) && content.equals(filter.getContent());
 		}
 		else {
 			return false;

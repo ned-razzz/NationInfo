@@ -1,6 +1,10 @@
 package View;
 
+import View.Gamepage.PnGame;
+import View.Searchpage.SearchManager;
+
 import javax.swing.*;
+import java.awt.*;
 
 
 public class ViewFrame extends JFrame {
@@ -9,17 +13,20 @@ public class ViewFrame extends JFrame {
 	public final static int HEIGHT = 500;
 	public final static String TITLE = "Nation Data Search Program";
 
-	private SetupPage setup_panel;
-	private ManagePages main_panel;
+	private PageManager page_manager;
+	private MainPage main_page;
+	private SearchManager search_page;
+	private PnGame game_page;
+	private SetupPage setup_page;
 	
 	/**
 	 * Create the application.
 	 */
 	public ViewFrame() {
-		setup_panel = new SetupPage();
-		main_panel = new ManagePages();
+		setComponents();
 		setWindowFrame();
-		constructComponents();
+		setLayers();
+		System.out.println(getSize().width + " " + getSize().height);
 	}
 
 	/**
@@ -41,28 +48,49 @@ public class ViewFrame extends JFrame {
 		getContentPane().setLayout(null);
 	}
 
-	private void constructComponents() {
-		JButton setup_button = setup_panel.getSetupBtn();
-		JButton return_main_button = main_panel.getMainPanel().getGobackButton();
+	private void setComponents() {
+		//주요 패널 객체 설정
+		main_page = new MainPage();
+		search_page = new SearchManager();
+		game_page = new PnGame();
+		setup_page = new SetupPage();
+
+		page_manager = new PageManager(main_page, search_page, game_page);
+		page_manager.setBtnListener();
+
+		JButton setup_button = setup_page.getSetupButton();
+		JButton goback_main_button = main_page.getGobackButton();
+		setup_button.setBounds(WIDTH-70, 10, 40, 40);
+		goback_main_button.setBounds(WIDTH-120, 10, 40, 40);
+		System.out.println(goback_main_button.getSize().width);
+
 
 		//UI에 추가
-		getContentPane().add(main_panel);
-		getContentPane().add(setup_panel);
-		getContentPane().add(setup_button);
-		getContentPane().add(return_main_button);
+		Container content_pane = getContentPane();
+		content_pane.add(main_page);
+		content_pane.add(game_page);
+		content_pane.add(search_page);
+		content_pane.add(setup_page);
+		content_pane.add(setup_button);
+		content_pane.add(goback_main_button);
 
-		//UI 요소 계층화 : 설정 버튼 및 설정창은 최상단에 위치
-		JLayeredPane jlp = getLayeredPane();
-		jlp.add(main_panel, JLayeredPane.DEFAULT_LAYER);
-		jlp.add(setup_button, JLayeredPane.PALETTE_LAYER);
-		jlp.add(return_main_button, JLayeredPane.PALETTE_LAYER);
-		jlp.add(setup_panel, JLayeredPane.MODAL_LAYER);
-
-		setup_button.setVisible(true);
-		main_panel.setVisible(true);
+		//초기 visible 설정
+		page_manager.visitPanel(VisitPage.MAIN);
+		setup_page.setVisible(false);
 	}
 
-	public ManagePages getMainPanel() {
-		return main_panel;
+	private void setLayers() {
+		//UI 요소 계층화 : 설정 버튼 및 설정창은 최상단에 위치
+		JLayeredPane jlp = getLayeredPane();
+		jlp.add(main_page, JLayeredPane.DEFAULT_LAYER);
+		jlp.add(search_page, JLayeredPane.DEFAULT_LAYER);
+		jlp.add(game_page, JLayeredPane.DEFAULT_LAYER);
+		jlp.add(main_page.getGobackButton(), JLayeredPane.PALETTE_LAYER);
+		jlp.add(setup_page.getSetupButton(), JLayeredPane.MODAL_LAYER);
+		jlp.add(setup_page, JLayeredPane.MODAL_LAYER);
+	}
+
+	public SearchManager getSearchPanel() {
+		return search_page;
 	}
 }

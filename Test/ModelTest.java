@@ -2,20 +2,26 @@ package Test;
 
 import Model.*;
 
-import java.awt.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
+
+import Enums.Schema;
 
 public class ModelTest {
     NationDataModel data_model = new NationDataModel();
 
     //test code
     public static void main(String[] arg) throws SQLException {
-//        ModelTest test = new ModelTest();
-        System.out.println("\u001B[31m" + "visitPanel(): invalid penal");
-        System.out.println("\t" + "\u001B[31m" + "at PnMain Class");
+        HashSet<SearchFilter> filter_list = new HashSet<>();
+        filter_list.add(new SearchFilter(Schema.LOC, SearchFilter.RIGHT_OPER, "유럽"));
+        filter_list.add(new SearchFilter(Schema.LOC, SearchFilter.RIGHT_OPER, "유럽"));
+        filter_list.add(new SearchFilter(Schema.LOC, SearchFilter.RIGHT_OPER, "럽"));
+        filter_list.stream().forEach(f->{
+            System.out.println(f.hashCode());
+        });
     }
 
     public void testGetColumn() {

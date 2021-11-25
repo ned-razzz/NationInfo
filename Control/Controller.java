@@ -1,12 +1,13 @@
 package Control;
 
+import Enums.BtnLst;
 import Model.*;
-import View.Searchpage.SimpleSearch;
+import View.ControlListeners;
+import View.Searchpage.FilterComp.FilterManager;
 import View.ViewFrame;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.HashMap;
 
 
 public class Controller {
@@ -21,7 +22,7 @@ public class Controller {
 	}
 
 	/**
-	* main method: Run whole program
+	 * main method: Run whole program
 	 */
 	public static void main(String args[]) {
 		Controller con = new Controller();
@@ -34,21 +35,49 @@ public class Controller {
 	}
 
 	public void handler() {
-		SimpleSearch search_panel =  view_client.getMainPanel().getSearchPanel().getSimpleSearch();
-		HashMap<String, ActionListener> button_handler = new HashMap<>();
-		button_handler.put("execute", new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				HashMap<String, String> result_data = data_model.getColumn(search_panel.getSearchText());
-				//테스트 메소드
-				result_data.entrySet().stream().forEach(entry -> {
-					System.out.printf("%s : %s\n", entry.getKey(), entry.getValue());
+		ControlListeners.getButtons().stream()
+				.forEach(b -> {
+					b.addActionListener(new ActionListener() {
+						@Override
+						public void actionPerformed(ActionEvent e) {
+							BtnLst command = BtnLst.valueOf(e.getActionCommand());
+							switch (command) {
+								case ADD_FILTER:
+									addFilter();
+									break;
+								case EXECUTE_SEARCH:
+									executeSearch();
+									break;
+								default:
+							}
+						}
+					});
 				});
-				System.out.println("=================");
-			}
-		});
-		search_panel.setBtnListener(button_handler);
 	}
+
+	public void addFilter() {
+		FilterManager fiter_panel =  view_client.getSearchPanel().getSimpleSearch().getFilterManager();
+		SearchFilter new_f = fiter_panel.getGenerater().getFilter();
+		filter_model.add(new_f);
+		fiter_panel.getTable().reload(filter_model);
+	}
+
+	public void executeSearch() {
+		//미구현
+	}
+
+//		button_handler.put("execute", new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				HashMap<String, String> result_data = data_model.getColumn(search_panel.getSearchText());
+//				result_data.entrySet().stream().forEach(entry -> {
+//					System.out.printf("%s : %s\n", entry.getKey(), entry.getValue());
+//				});
+//				System.out.println("=================");
+//			}
+//		});
+//		search_panel.setBtnListener(button_handler);
+
 
 	/*
 	public ArrayList<String> detail_search(String[] key, ArrayList<String> value){
@@ -68,5 +97,4 @@ public class Controller {
 
 	}
 	 */
-
 }
