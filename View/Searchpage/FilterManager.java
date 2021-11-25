@@ -1,12 +1,15 @@
-package View.Searchpage.FilterComp;
+package View.Searchpage;
 
 import Enums.ModernColor;
+import View.Searchpage.FilterComp.FilterGenerater;
+import View.Searchpage.FilterComp.FilterTable;
+
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
 
 /**
- * 필터를 만들고 추가하는 SimpleSearch의 부분 패널
+ * 필터를 만들고 추가하는 SearchPanel의 부분 UI
  */
 public class FilterManager extends JPanel {
     private FilterGenerater filter_generater;

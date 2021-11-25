@@ -6,10 +6,11 @@ import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-//검색창 패널
+/**
+ * 국가 검색 패널들 전체 관리
+ */
 public class SearchManager extends JPanel {
-	
-	private SimpleSearch simple_search; //간편검색창
+	private SearchPanel simple_search; //간편검색창
 	private JButton enter_simsch_button;
 
 //	private JPanel detail_search;
@@ -31,7 +32,7 @@ public class SearchManager extends JPanel {
 
 	//컴포넌트 설정
 	private void defineComponents() {
-		simple_search = new SimpleSearch();
+		simple_search = new SearchPanel();
 		simple_search.setVisible(false);
 
 		enter_simsch_button = simple_search.getEnterButton();
@@ -56,7 +57,7 @@ public class SearchManager extends JPanel {
 		}
 	}
 
-	public SimpleSearch getSimpleSearch() {
+	public SearchPanel getSearchPanel() {
 		return simple_search;
 	}
 
@@ -78,8 +79,8 @@ public class SearchManager extends JPanel {
 //
 //
 //				ArrayList<String> result = con.detail_search(key, value);
-//				for(int i = 0; i < result.size(); i++) {
-//					tbCtris.append("● " + result.get(i) + "\n");
+//				for(int i = 0; i < size(); i++) {
+//					tbCtris.append("● " + get(i) + "\n");
 //				}
 //			}
 //		});

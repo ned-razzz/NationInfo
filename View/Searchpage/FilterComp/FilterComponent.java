@@ -24,7 +24,7 @@ public class FilterComponent extends JPanel {
 
     private void setFrame() {
         setBorder(new LineBorder(ModernColor.BLACK.COLOR, 1));
-        setBackground(ModernColor.BEIGE.COLOR);
+        setBackground(ModernColor.WHITE.COLOR);
         setBounds(0, 0, 80, 40);
         setLayout(null);
     }

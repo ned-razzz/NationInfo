@@ -5,7 +5,7 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.util.Arrays;
 
-import Enums.BtnLst;
+import Enums.BtnAction;
 import Enums.ModernColor;
 import Enums.Schema;
 import Model.SearchFilter;
@@ -54,7 +54,7 @@ public class FilterGenerater extends JPanel {
                                         Component c = super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 
                                         if (isSelected)
-                                            c.setBackground(ModernColor.BEIGE.COLOR);
+                                            c.setBackground(ModernColor.WHITE.COLOR);
                                         else
                                             c.setBackground(Color.WHITE);
 
@@ -82,11 +82,11 @@ public class FilterGenerater extends JPanel {
         add_filter = new JButton("+");
         add_filter.setToolTipText("필터 추가하기");
         add_filter.setBorder(new LineBorder(ModernColor.BLACK.COLOR, 1));
-        add_filter.setBackground(ModernColor.BEIGE.COLOR);
+        add_filter.setBackground(ModernColor.WHITE.COLOR);
         add_filter.setForeground(ModernColor.BLACK.COLOR);
         add_filter.setFont(new Font("Arial", Font.BOLD, 16));
         add_filter.setFocusPainted(false);
-        add_filter.setActionCommand(BtnLst.ADD_FILTER.toString());
+        add_filter.setActionCommand(BtnAction.ADD_FILTER.toString());
         ControlListeners.addButtonHandler(add_filter);
 
         /* 데이터 출력 테스트

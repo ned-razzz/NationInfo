@@ -91,13 +91,18 @@ public class NationDataModel {
 	
 	public ArrayList<String> find(SearchFilterModel filter) {
 		ArrayList<String> finded = new ArrayList<>();
-		String sql = String.format("select %s from nation where %s", PRIMARY_KEY, filter.getSql());
+		String sql = String.format("select %s from nation", PRIMARY_KEY);
+
+		if(!filter.getFilterList().isEmpty()) {
+			sql += String.format(" where %s", filter.getSql());
+		}
 		System.out.println(sql);
 
 		try {
 			ResultSet sql_res = Database.getInstance().executeSql(sql);
 			while (sql_res.next()) {
 				finded.add(sql_res.getString(PRIMARY_KEY.toString()));
+				System.out.println(sql_res.getString(PRIMARY_KEY.toString()));
 			}
 		}
 		catch (SQLException e) {

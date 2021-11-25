@@ -1,22 +1,26 @@
 package View.Searchpage;
 
-import Enums.BtnLst;
+import Enums.BtnAction;
 import Enums.ImageManager;
 import Enums.ModernColor;
 import View.ControlListeners;
-import View.Searchpage.FilterComp.FilterManager;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 
-public class SimpleSearch extends JPanel {
+/**
+ * 필터를 설정하고 검색을 실행하는 UI
+ */
+public class SearchPanel extends JPanel {
 
     private FilterManager filter_component;
-    private ResultTable search_result;
+    private ResultTable result_table;
+    private ResultInfo result_info;
+
     private JButton search_execute_button;
 
-    public SimpleSearch() {
+    public SearchPanel() {
         setFrame();
         defineComponents();
     }
@@ -33,22 +37,18 @@ public class SimpleSearch extends JPanel {
         filter_component = new FilterManager();
         add(filter_component);
 
+        result_table = new ResultTable();
+        JScrollPane scroll_panel = result_table.getScrollPanel();
+        scroll_panel.setBounds(330, 50, 350, 340);
+        add(scroll_panel);
+
         search_execute_button = new JButton("검색");
         search_execute_button.setBounds(350, 10, 60, 30);
-        search_execute_button.setActionCommand(BtnLst.EXECUTE_SEARCH.toString());
+        search_execute_button.setActionCommand(BtnAction.EXECUTE_SEARCH.toString());
         ControlListeners.addButtonHandler(search_execute_button);
         add(search_execute_button);
 
-        JPanel result = new JPanel();
-        result.setBounds(350, 50, 320, 320);
-        result.setBorder(new LineBorder(ModernColor.BLACK.COLOR, 1));
-        result.setLayout(new GridLayout(10, 0, 0, 0));
-        JButton[] b = {new JButton() , new JButton(), new JButton()};
-        for (JButton btn : b) {
-            btn.setBounds(0, 0, 320, 350);
-            result.add(btn);
-        }
-        add(result);
+
     }
 
     public JButton getEnterButton() {
@@ -59,6 +59,18 @@ public class SimpleSearch extends JPanel {
 
     public FilterManager getFilterManager() {
         return filter_component;
+    }
+
+    public ResultTable getResultTable() {
+        return result_table;
+    }
+
+    public void setResultInfo(ResultInfo obj) {
+        result_info = obj;
+    }
+
+    public ResultInfo getResultInfo() {
+        return result_info;
     }
 
 
@@ -77,7 +89,7 @@ public class SimpleSearch extends JPanel {
 //
 //			@Override
 //			public void actionPerformed(ActionEvent e) {
-//				pnSearch_result.setVisible(true);
+//				pnSearch_setVisible(true);
 //				simple_search.setVisible(false);
 //				btSrch.setVisible(false);
 //				btMap.setVisible(false);

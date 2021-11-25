@@ -1,9 +1,9 @@
 package Test;
 
-import Enums.BtnLst;
+import Enums.BtnAction;
 
 public class ControlTest {
     public static void main(String args[]) {
-        System.out.println(BtnLst.valueOf(BtnLst.ADD_FILTER.toString()));
+        System.out.println(BtnAction.valueOf(BtnAction.ADD_FILTER.toString()));
     }
 }
