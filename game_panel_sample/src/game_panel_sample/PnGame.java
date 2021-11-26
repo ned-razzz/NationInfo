@@ -1,21 +1,14 @@
-package Gui;
-
-import javax.swing.JPanel;
-import javax.swing.border.LineBorder;
-import javax.swing.border.TitledBorder;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JLabel;
+package game_panel_sample;
 
 import java.awt.Color;
 import java.awt.Font;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JTextArea;
-import javax.swing.border.BevelBorder;
-import javax.swing.JTextField;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextPane;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.LineBorder;
 
 public class PnGame extends JPanel {
 
