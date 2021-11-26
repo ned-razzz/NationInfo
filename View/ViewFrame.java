@@ -1,5 +1,6 @@
 package View;
 
+import Enums.Schema;
 import View.Gamepage.PnGame;
 import View.Searchpage.SearchManager;
 
@@ -76,7 +77,6 @@ public class ViewFrame extends JFrame {
 
 		//초기 visible 설정
 		page_manager.visitPanel(VisitPage.MAIN);
-		setup_page.setVisible(false);
 	}
 
 	private void setLayers() {

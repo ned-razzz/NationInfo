@@ -26,6 +26,7 @@ public class SetupPage extends JPanel {
 		setVisible(false);
 		setBounds(0, 0, 824, 461);
 		setLayout(null);
+		setVisible(false);
 	}
 
 	private void defineSetupComponents() {
@@ -70,7 +71,7 @@ public class SetupPage extends JPanel {
 	}
 
 	private void toggleSetupPanel() {
-		this.setVisible(!setup_button.isVisible());
+ 		setVisible(!isVisible());
 	}
 
 	//설정창을 여는 버튼 생성 및 반환
