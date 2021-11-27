@@ -16,7 +16,7 @@ public enum ImageManager {
     RUN_SEARCH("search_go.png");
 
 
-    public final String PATH_TO_DIR = "./src/View/images/";
+    public final String PATH_TO_DIR = "./View/images/";
     public final String PATH_TO_IMG;
     public final String PATH;
 
