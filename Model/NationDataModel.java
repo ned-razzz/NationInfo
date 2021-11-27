@@ -122,48 +122,32 @@ public class NationDataModel {
 		}
 		return sql_result;
 	}
-	
-	//확인 필요!
-	ResultSet rs = null;
+
 	public ResultSet getGameSource() {
 		String sql = "SELECT " + Schema.NAME.ENG_NAME + ", " + Schema.CAPITAL.ENG_NAME + " FROM nation";
-		ResultSet sql_res = null;
-		if(rs == null) {
-			try {
-				sql_res = Database.getInstance().executeSql(sql);
-			}
-			catch (SQLException e) {
-				e.printStackTrace();
-			}
-			rs = sql_res;
+		ResultSet gameSource = null;
+		
+		try {
+			gameSource = Database.getInstance().executeSql(sql);
 		}
-		return rs;
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return gameSource;
 	}
 	
-	public String gameName(int num) {
+	public String[] gameInfo(int num) {
 		ResultSet resultSet = getGameSource();
+		String[] info = new String[2];
 		if(resultSet != null) {
 			int i = 0;
 			try {
 				while(resultSet.next()) {
-					if(i == num) return resultSet.getString(Schema.NAME.ENG_NAME);
-					i++;
-				}
-			}
-			catch(SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		return null;
-	}
-	
-	public String gameCapital(int num) {
-		ResultSet resultSet = getGameSource();
-		if(resultSet != null) {
-			int i = 0;
-			try {
-				while(resultSet.next()) {
-					if(i == num) return resultSet.getString(Schema.CAPITAL.ENG_NAME);
+					if(i == num) {
+						info[0] = resultSet.getString(Schema.CAPITAL.ENG_NAME);
+						info[1] = resultSet.getString(Schema.NAME.ENG_NAME);
+						return info;
+					}
 					i++;
 				}
 			}
