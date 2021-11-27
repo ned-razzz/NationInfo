@@ -51,7 +51,7 @@ public class ResultTable extends JPanel {
 
     private void showTable(ArrayList<String> search_result) {
         resetTable();
-        search_result.parallelStream()
+        search_result.stream()
                 .map(res -> createButton(res))
                 .forEach(b -> {
                     add(b);

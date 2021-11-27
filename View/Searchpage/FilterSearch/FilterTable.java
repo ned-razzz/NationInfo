@@ -1,4 +1,4 @@
-package View.Searchpage.FilterComp;
+package View.Searchpage.FilterSearch;
 
 import Enums.ModernColor;
 import Model.SearchFilter;
@@ -13,7 +13,7 @@ import java.util.HashSet;
 
 public class FilterTable extends JPanel {
 
-    private HashMap<SearchFilter, FilterComponent> filter_comps;
+    private HashMap<SearchFilter, FilterItem> filter_comps;
 
     public FilterTable() {
         setFrame();
@@ -28,7 +28,7 @@ public class FilterTable extends JPanel {
     }
 
     public void addFilter(SearchFilter filter) {
-        FilterComponent comp = new FilterComponent(filter);
+        FilterItem comp = new FilterItem(filter);
         filter_comps.put(filter, comp);
         add(comp);
     }

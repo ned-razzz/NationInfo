@@ -4,16 +4,17 @@ import javax.swing.*;
 
 public enum ImageManager {
     //MainPage
-    GO_SEARCH("green_Earth.png"),
-    GO_GAME("blue_Earth.png"),
-    BACK_MAIN("home_icon.jpg"),
-    MAIN_TITLE("Pnfirst_Title.PNG"),
+    GO_SEARCH("icon_game.png"),
+    GO_GAME("icon_search.png"),
+    BACK_MAIN("icon_home.jpg"),
+    MAIN_TITLE("title.png"),
 
     //SetupPage
-    TOGGLE_SETUP("set_up_icon.png"),
+    TOGGLE_SETUP("icon_setup.png"),
 
-    //SimpleSearch
-    RUN_SEARCH("search_go.png");
+    //SearchPage
+    OPEN_FILTER("search_filter.png"),
+    OPEN_MAP("search_map.png");
 
 
     public final String PATH_TO_DIR = "./src/View/images/";

@@ -10,19 +10,15 @@ import java.awt.event.ActionListener;
  * 국가 검색 패널들 전체 관리
  */
 public class SearchManager extends JPanel {
-	private SearchPanel simple_search; //간편검색창
-	private JButton enter_simsch_button;
+	private FilterSearchPanel simple_search; //간편검색창
+	private MapSearchPanel map_search; //지도검색창
 
-//	private JPanel detail_search;
-//	private PnSearch_result search_result; //결과창 패널
-//	private PnMap_opened pnMap_opened; //지도 패널
-
+	private JButton enter_filtersch_button;
+	private JButton enter_mapsch_button;
 
 	public SearchManager() {
 		setFrame();
 		defineComponents();
-		this.add(simple_search);
-
 	}
 
 	private void setFrame() {
@@ -32,56 +28,47 @@ public class SearchManager extends JPanel {
 
 	//컴포넌트 설정
 	private void defineComponents() {
-		simple_search = new SearchPanel();
-		simple_search.setVisible(false);
+		simple_search = new FilterSearchPanel();
+		simple_search.setVisible(true);
+		map_search = new MapSearchPanel();
+		map_search.setVisible(false);
 
-		enter_simsch_button = simple_search.getEnterButton();
-		enter_simsch_button.setBounds(741, 326, 59, 58);
-		enter_simsch_button.addActionListener(new ActionListener() {
+
+		enter_filtersch_button = simple_search.getEnterButton();
+		enter_filtersch_button.setBounds(741, 326, 59, 58);
+		enter_filtersch_button.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				toggleSearchPanel();
+				openFilterPanel();
+			}
+		});
+
+		enter_mapsch_button = map_search.getEnterButton();
+		enter_mapsch_button.setBounds(741, 390, 59, 58);
+		enter_mapsch_button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				toggleMapPanel();
 			}
 		});
 
 		add(simple_search);
-		add(enter_simsch_button);
+		add(map_search);
+		add(enter_filtersch_button);
+		add(enter_mapsch_button);
 	}
 
-	private void toggleSearchPanel() {
-		if (simple_search.isVisible() == false) {
-			simple_search.setVisible(true);
-		}
-		else {
-			simple_search.setVisible(false);
-		}
+	private void openFilterPanel() {
+		simple_search.setVisible(true);
+		map_search.setVisible(false);
 	}
 
-	public SearchPanel getSearchPanel() {
+	private void toggleMapPanel() {
+		map_search.setVisible(true);
+		simple_search.setVisible(false);
+	}
+
+	public FilterSearchPanel getSearchPanel() {
 		return simple_search;
 	}
-
-
-
-	// 상세 검색 실행 버튼(detail_search_Button)
-//		detail_search_Button.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				tbCtris.setText(null);
-//				con = new Controller();
-//
-//				Schema[] key = {"climate", "religion", "contry_code", "location", "area"};
-//				ArrayList<String> value = new ArrayList<>();
-//				value.add(select_Climate.getText());
-//				value.add(select_Religion.getText());
-//				value.add(select_code.getText());
-//				value.add(select_location.getText());
-//				value.add(select_area.getText());
-//
-//
-//				ArrayList<String> result = con.detail_search(key, value);
-//				for(int i = 0; i < size(); i++) {
-//					tbCtris.append("● " + get(i) + "\n");
-//				}
-//			}
-//		});
 }

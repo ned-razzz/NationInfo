@@ -1,4 +1,4 @@
-package View.Searchpage.FilterComp;
+package View.Searchpage.FilterSearch;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;

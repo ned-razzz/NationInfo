@@ -3,11 +3,11 @@ package Control;
 import Enums.BtnAction;
 import Enums.Schema;
 import Model.*;
-import View.Searchpage.FilterComp.FilterComponent;
-import View.Searchpage.FilterManager;
+import View.Searchpage.FilterSearch.FilterItem;
+import View.Searchpage.FilterSearch.FilterManager;
 import View.Searchpage.ResultInfo;
 import View.Searchpage.ResultTable;
-import View.Searchpage.SearchPanel;
+import View.Searchpage.FilterSearchPanel;
 import View.ViewFrame;
 
 import javax.swing.*;
@@ -84,20 +84,20 @@ public class Controller {
 
 		public void deleteilter(JButton btn) {
 			FilterManager fiter_panel = view_client.getSearchPage().getSearchPanel().getFilterManager();
-			FilterComponent compo = (FilterComponent)btn.getParent();
+			FilterItem compo = (FilterItem)btn.getParent();
 			filter_model.delete(compo.getFilter());
 			fiter_panel.getTable().reload(filter_model);
 		}
 
 		public void executeSearch() {
-			SearchPanel search_panel = view_client.getSearchPage().getSearchPanel();
+			FilterSearchPanel search_panel = view_client.getSearchPage().getSearchPanel();
 			ResultTable result_panel = search_panel.getResultTable();
 			ArrayList<String> search_result = data_model.find(filter_model);
 			result_panel.executeSearch(search_result);
 		}
 
 		public void searchSpecific(JButton btn) {
-			SearchPanel search_panel = view_client.getSearchPage().getSearchPanel();
+			FilterSearchPanel search_panel = view_client.getSearchPage().getSearchPanel();
 			ResultTable result_panel = search_panel.getResultTable();
 			HashMap<Schema, String> get_data = data_model.getColumn(btn.getText());
 			ResultInfo info_panel = new ResultInfo(view_client, get_data);
@@ -105,7 +105,7 @@ public class Controller {
 		}
 
 		public void showInfo(BtnAction cmd) {
-			SearchPanel search_panel = view_client.getSearchPage().getSearchPanel();
+			FilterSearchPanel search_panel = view_client.getSearchPage().getSearchPanel();
 			ResultInfo info_panel = search_panel.getResultInfo();
 
 			HashMap<Schema, String> data_set = info_panel.getCountryData();

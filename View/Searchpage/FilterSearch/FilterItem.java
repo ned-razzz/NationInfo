@@ -1,4 +1,4 @@
-package View.Searchpage.FilterComp;
+package View.Searchpage.FilterSearch;
 
 import Enums.BtnAction;
 import Enums.ModernColor;
@@ -9,7 +9,7 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 
-public class FilterComponent extends JPanel {
+public class FilterItem extends JPanel {
 
     private JLabel type;
     private JLabel oper;
@@ -17,11 +17,11 @@ public class FilterComponent extends JPanel {
     private JButton delete_button;
     private SearchFilter filter;
 
-    public FilterComponent() {
+    public FilterItem() {
         setFrame();
     }
 
-    public FilterComponent(SearchFilter filter) {
+    public FilterItem(SearchFilter filter) {
         this.filter = filter;
         setFrame();
         setComps();

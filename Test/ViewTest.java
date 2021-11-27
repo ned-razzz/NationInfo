@@ -1,7 +1,5 @@
 package Test;
 
-import View.Searchpage.ResultInfo;
-
 import javax.swing.*;
 
 public class ViewTest {

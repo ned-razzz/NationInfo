@@ -1,8 +1,6 @@
-package View.Searchpage;
+package View.Searchpage.FilterSearch;
 
 import Enums.ModernColor;
-import View.Searchpage.FilterComp.FilterGenerater;
-import View.Searchpage.FilterComp.FilterTable;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
