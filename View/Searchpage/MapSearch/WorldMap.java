@@ -1,19 +1,18 @@
-package View.etc;
+package View.Searchpage.MapSearch;
+
+import Enums.ImgData;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 
-import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-//지도 패널
-public class PnMap_opened extends JPanel {
+public class WorldMap extends JPanel {
 	private Image img;
-	
-	
-	public PnMap_opened() {
-		img = new ImageIcon("./Images/worldmap2.PNG").getImage();
+
+	public WorldMap() {
+		img = ImgData.WORLD_MAP.getIcon().getImage();
 		setSize(new Dimension(img.getWidth(null), img.getHeight(null)));
 		setLayout(null);
 	}
@@ -22,4 +21,3 @@ public class PnMap_opened extends JPanel {
 		g.drawImage(img, 0, 0, null);
 	}
 }
-

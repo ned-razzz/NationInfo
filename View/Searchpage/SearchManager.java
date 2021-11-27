@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
  * 국가 검색 패널들 전체 관리
  */
 public class SearchManager extends JPanel {
-	private FilterSearchPanel simple_search; //간편검색창
+	private FilterSearchPanel filter_search; //간편검색창
 	private MapSearchPanel map_search; //지도검색창
 
 	private JButton enter_filtersch_button;
@@ -28,13 +28,13 @@ public class SearchManager extends JPanel {
 
 	//컴포넌트 설정
 	private void defineComponents() {
-		simple_search = new FilterSearchPanel();
-		simple_search.setVisible(true);
+		filter_search = new FilterSearchPanel();
+		filter_search.setVisible(true);
 		map_search = new MapSearchPanel();
 		map_search.setVisible(false);
 
 
-		enter_filtersch_button = simple_search.getEnterButton();
+		enter_filtersch_button = filter_search.getEnterButton();
 		enter_filtersch_button.setBounds(741, 326, 59, 58);
 		enter_filtersch_button.addActionListener(new ActionListener() {
 			@Override
@@ -52,23 +52,27 @@ public class SearchManager extends JPanel {
 			}
 		});
 
-		add(simple_search);
+		add(filter_search);
 		add(map_search);
 		add(enter_filtersch_button);
 		add(enter_mapsch_button);
 	}
 
 	private void openFilterPanel() {
-		simple_search.setVisible(true);
+		filter_search.setVisible(true);
 		map_search.setVisible(false);
 	}
 
 	private void toggleMapPanel() {
 		map_search.setVisible(true);
-		simple_search.setVisible(false);
+		filter_search.setVisible(false);
 	}
 
-	public FilterSearchPanel getSearchPanel() {
-		return simple_search;
+	public FilterSearchPanel getFilterPanel() {
+		return filter_search;
+	}
+
+	public MapSearchPanel getMapPanel() {
+		return map_search;
 	}
 }

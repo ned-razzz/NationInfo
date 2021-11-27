@@ -1,14 +1,11 @@
 package View.Searchpage;
 
 import Enums.BtnAction;
-import Enums.ImageManager;
-import Enums.ModernColor;
+import Enums.ImgData;
 import View.ControlHandler;
 import View.Searchpage.FilterSearch.FilterManager;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
-import java.awt.*;
 
 /**
  * 필터를 설정하고 검색을 실행하는 UI
@@ -17,17 +14,10 @@ public class FilterSearchPanel extends SearchPanel {
 
     private FilterManager filter_component;
     private JButton search_execute_button;
+    private ResultInfo result_info;
 
     public FilterSearchPanel() {
         super();
-    }
-
-    @Override
-    protected void setFrame() {
-        setBorder(new LineBorder(new Color(0, 0, 0), 2));
-        setBounds(10, 10, 704, 400);
-        setBackground(ModernColor.WHITE.COLOR);
-        setLayout(null);
     }
 
     //일반 검색 패널
@@ -46,11 +36,19 @@ public class FilterSearchPanel extends SearchPanel {
     @Override
     public JButton getEnterButton() {
         //해당 검색 패널로 이동하는 버튼
-        JButton enter_button = new JButton(ImageManager.OPEN_FILTER.getIcon());
+        JButton enter_button = new JButton(ImgData.OPEN_FILTER.getIcon());
         return enter_button;
+    }
+
+    public void show(ResultInfo obj) {
+        result_info = obj;
     }
 
     public FilterManager getFilterManager() {
         return filter_component;
+    }
+
+    public ResultInfo getResultInfo() {
+        return result_info;
     }
 }

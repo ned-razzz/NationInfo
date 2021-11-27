@@ -5,7 +5,7 @@ import java.awt.Font;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
-import Enums.ImageManager;
+import Enums.ImgData;
 
 /**
  * 메인 화면을 담당하는 클래스
@@ -37,14 +37,14 @@ public class MainPage extends JPanel {
 	private void setButton() {
 		//국가 검색 버튼
 		search_panel_button = new JButton();
-		search_panel_button.setIcon(ImageManager.GO_SEARCH.getIcon());
+		search_panel_button.setIcon(ImgData.GO_SEARCH.getIcon());
 		search_panel_button.setBounds(100, 240, 150, 130);
 		search_panel_button.setBorderPainted(false);
 		add(search_panel_button);
 
 		//게임 버튼
 		game_panel_button = new JButton();
-		game_panel_button.setIcon(ImageManager.GO_GAME.getIcon());
+		game_panel_button.setIcon(ImgData.GO_GAME.getIcon());
 		game_panel_button.setBounds(574, 240, 150, 130);
 		game_panel_button.setBorderPainted(false);
 		add(game_panel_button);
@@ -52,13 +52,13 @@ public class MainPage extends JPanel {
 		//메인화면으로 돌아가기 버튼
 		goback_main_button = new JButton("");
 		goback_main_button.setForeground(Color.WHITE);
-		goback_main_button.setIcon(ImageManager.BACK_MAIN.getIcon());
+		goback_main_button.setIcon(ImgData.BACK_MAIN.getIcon());
 	}
 	
 	//메인 화면 타이틀 이미지
 	private void setTitle() {
 		main_title_label = new JLabel("");
-		main_title_label.setIcon(ImageManager.MAIN_TITLE.getIcon());
+		main_title_label.setIcon(ImgData.MAIN_TITLE.getIcon());
 		main_title_label.setFont(new Font("Arial Black", Font.PLAIN, 19));
 		main_title_label.setBounds(262, 39, 300, 90);
 		add(main_title_label);

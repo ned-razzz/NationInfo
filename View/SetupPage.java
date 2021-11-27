@@ -8,7 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import Enums.ImageManager;
+import Enums.ImgData;
 
 //설정패널
 public class SetupPage extends JPanel {
@@ -54,7 +54,7 @@ public class SetupPage extends JPanel {
 
 		//설정창 키고끄는 버튼
 		setup_button = new JButton("");
-		setup_button.setIcon(ImageManager.TOGGLE_SETUP.getIcon());
+		setup_button.setIcon(ImgData.TOGGLE_SETUP.getIcon());
 		setup_button.setVisible(true);
 		setup_button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

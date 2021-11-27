@@ -2,7 +2,7 @@ package Enums;
 
 import javax.swing.*;
 
-public enum ImageManager {
+public enum ImgData {
     //MainPage
     GO_SEARCH("icon_game.png"),
     GO_GAME("icon_search.png"),
@@ -14,15 +14,23 @@ public enum ImageManager {
 
     //SearchPage
     OPEN_FILTER("search_filter.png"),
-    OPEN_MAP("search_map.png");
+    OPEN_MAP("search_map.png"),
 
+    //MapPage
+    WORLD_MAP("worldmap.png"),
+    AFRICA_MAP("africa.png"),
+    ASIA_MAP("asia.png"),
+    EUROPE_MAP("europe.png"),
+    NORTH_AMERICA_MAP("north_america.png"),
+    SOUTH_AMERICA_MAP("south_america.png"),
+    OCEANIA_MAP("oceania.png");
 
     public final String PATH_TO_DIR = "./src/View/images/";
     public final String PATH_TO_IMG;
     public final String PATH;
 
 
-    private ImageManager(String path) {
+    private ImgData(String path) {
         PATH_TO_IMG = path;
         PATH = PATH_TO_DIR + PATH_TO_IMG;
     }

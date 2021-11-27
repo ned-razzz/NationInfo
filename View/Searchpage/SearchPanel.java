@@ -1,8 +1,6 @@
 package View.Searchpage;
 
-import Enums.BtnAction;
 import Enums.ModernColor;
-import View.ControlHandler;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -10,8 +8,8 @@ import java.awt.*;
 
 public class SearchPanel extends JPanel {
 
+    protected JScrollPane scroll_container;
     protected ResultTable result_table;
-    protected ResultInfo result_info;
 
     public SearchPanel() {
         setFrame();
@@ -27,9 +25,9 @@ public class SearchPanel extends JPanel {
 
     protected void defineComponents() {
         result_table = new ResultTable();
-        JScrollPane srcoll_container = result_table.getScrollPanel();
-        srcoll_container.setBounds(330, 50, 350, 340);
-        add(srcoll_container);
+        scroll_container = result_table.getScrollPanel();
+        scroll_container.setBounds(330, 50, 350, 340);
+        add(scroll_container);
     }
 
     public JButton getEnterButton() {
@@ -38,15 +36,10 @@ public class SearchPanel extends JPanel {
         return enter_button;
     }
 
-    public void show(ResultInfo obj) {
-        result_info = obj;
-    }
-
     public ResultTable getResultTable() {
         return result_table;
     }
-
-    public ResultInfo getResultInfo() {
-        return result_info;
+    public JScrollPane getScrollBox() {
+        return scroll_container;
     }
 }
