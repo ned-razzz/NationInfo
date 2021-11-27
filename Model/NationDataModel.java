@@ -126,7 +126,7 @@ public class NationDataModel {
 	//확인 필요!
 	ResultSet rs = null;
 	public ResultSet getGameSource() {
-		String sql = "SELECT " + Schema.NAME.TYPE + ", " + Schema.CAPITAL.TYPE + " FROM nation";
+		String sql = "SELECT " + Schema.NAME.ENG_NAME + ", " + Schema.CAPITAL.ENG_NAME + " FROM nation";
 		ResultSet sql_res = null;
 		if(rs == null) {
 			try {
@@ -146,7 +146,7 @@ public class NationDataModel {
 			int i = 0;
 			try {
 				while(resultSet.next()) {
-					if(i == num) return resultSet.getString(Schema.NAME.TYPE);
+					if(i == num) return resultSet.getString(Schema.NAME.ENG_NAME);
 					i++;
 				}
 			}
@@ -163,7 +163,7 @@ public class NationDataModel {
 			int i = 0;
 			try {
 				while(resultSet.next()) {
-					if(i == num) return resultSet.getString(Schema.CAPITAL.TYPE);
+					if(i == num) return resultSet.getString(Schema.CAPITAL.ENG_NAME);
 					i++;
 				}
 			}
