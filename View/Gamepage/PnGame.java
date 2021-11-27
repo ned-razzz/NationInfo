@@ -91,7 +91,7 @@ public class PnGame extends JPanel {
 		
 		answer1_button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(game.isCorrect(answer1_button.getText()))
+				if(game.isCorrect(answer1_button.getText()) == 1)
 					correct_label.setVisible(true);
 				else
 					wrong_label.setVisible(true);
@@ -102,7 +102,7 @@ public class PnGame extends JPanel {
 		
 		answer2_button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(game.isCorrect(answer2_button.getText()))
+				if(game.isCorrect(answer2_button.getText()) == 1)
 					correct_label.setVisible(true);
 				else
 					wrong_label.setVisible(true);
@@ -113,7 +113,7 @@ public class PnGame extends JPanel {
 		
 		answer3_button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(game.isCorrect(answer3_button.getText()))
+				if(game.isCorrect(answer3_button.getText()) == 1)
 					correct_label.setVisible(true);
 				else
 					wrong_label.setVisible(true);
@@ -143,9 +143,9 @@ public class PnGame extends JPanel {
 		JButton next_button = new JButton("다음문제");
 		next_button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				game.gameRun();
 				correct_label.setVisible(false);
 				wrong_label.setVisible(false);
+				game.gameRun();
 				
 				question_label.setText(game.getName());
 				answer1_button.setText(game.getAnswer(0));

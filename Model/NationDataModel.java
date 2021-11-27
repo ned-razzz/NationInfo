@@ -122,16 +122,21 @@ public class NationDataModel {
 		return sql_result;
 	}
 	
+	//확인 필요!
+	ResultSet rs = null;
 	public ResultSet getGameSource() {
 		String sql = "SELECT " + Schema.NAME.TYPE + ", " + Schema.CAPITAL.TYPE + " FROM nation";
 		ResultSet sql_res = null;
-		try {
-			sql_res = Database.getInstance().executeSql(sql);
+		if(rs == null) {
+			try {
+				sql_res = Database.getInstance().executeSql(sql);
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+			rs = sql_res;
 		}
-		catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return sql_res;
+		return rs;
 	}
 	
 	public String gameName(int num) {

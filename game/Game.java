@@ -13,6 +13,7 @@ public class Game {
 	private String[] answers;
 	private NationDataModel ndm;
 	private boolean gameover = false;
+	private boolean done = false;
 	
 	public int getScore() {return score;}
 	
@@ -37,6 +38,7 @@ public class Game {
 	}
 	
 	public void makeQuestion() {
+		done = false;
 		Random random = new Random();
 		int answer = random.nextInt(3);
 		
@@ -75,15 +77,20 @@ public class Game {
 		return gameover;
 	}
 	
-	public boolean isCorrect(String label) {
-		if (label.equals(right)) {
-			score ++;
-			return true;
-		}
-		if(limit > 0 )
-			limit--;
-		if(limit == 0)
-			gameover = true;
-		return false;
+	public int isCorrect(String label) {
+		if(done == false && gameover == false) {
+			if (label.equals(right)) {
+				score ++;
+				done = true;
+				return 1;
+			}
+			if(limit > 0 )
+				limit--;
+			if(limit == 0)
+				gameover = true;
+			done = true;
+			return 0;
+		}else
+			return -1;
 	}
 }
