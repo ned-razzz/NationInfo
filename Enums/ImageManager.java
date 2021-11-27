@@ -13,10 +13,17 @@ public enum ImageManager {
     TOGGLE_SETUP("set_up_icon.png"),
 
     //SimpleSearch
-    RUN_SEARCH("search_go.png");
+    RUN_SEARCH("search_go.png"),
+	
+	//game page
+	START_GAME("start_button.png"),
+	LABEL_GAME("game_text.png"),
+	GO_RESULT_GAME("game_result_text1.png"),
+	RESULT_GAME("game_result_text.png"),
+	RESTART_GAME("game_restart_button.png");
 
 
-    public final String PATH_TO_DIR = "./src/View/images/";
+    public final String PATH_TO_DIR = "./View/images/";
     public final String PATH_TO_IMG;
     public final String PATH;
 

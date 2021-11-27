@@ -122,4 +122,39 @@ public class NationDataModel {
 		}
 		return sql_result;
 	}
+
+	public ResultSet getGameSource() {
+		String sql = "SELECT " + Schema.NAME.ENG_NAME + ", " + Schema.CAPITAL.ENG_NAME + " FROM nation";
+		ResultSet gameSource = null;
+		
+		try {
+			gameSource = Database.getInstance().executeSql(sql);
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return gameSource;
+	}
+	
+	public String[] gameInfo(int num) {
+		ResultSet resultSet = getGameSource();
+		String[] info = new String[2];
+		if(resultSet != null) {
+			int i = 0;
+			try {
+				while(resultSet.next()) {
+					if(i == num) {
+						info[0] = resultSet.getString(Schema.CAPITAL.ENG_NAME);
+						info[1] = resultSet.getString(Schema.NAME.ENG_NAME);
+						return info;
+					}
+					i++;
+				}
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
 }
