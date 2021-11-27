@@ -109,52 +109,38 @@ public class Controller {
 			ResultInfo info_panel = search_panel.getResultInfo();
 
 			HashMap<Schema, String> data_set = info_panel.getCountryData();
-			StringBuilder instruction = new StringBuilder("");
-
+			SchemaFilter filter_func = key -> true;
 			switch (cmd) {
 				case SEARCH_BRIEF:
-					data_set.keySet().stream()
-							.sorted()
-							.filter(key -> (key == Schema.NAME) || (key == Schema.CODE) || (key == Schema.CAPITAL))
-							.forEach(key -> {
-								instruction.append( "● " + key.KOR_NAME + ":\n" + data_set.get(key) + "\n\n");
-							});
+					filter_func = key -> (key == Schema.NAME) || (key == Schema.CODE) || (key == Schema.CAPITAL);
 					break;
 				case SEARCH_REGION:
-					data_set.keySet().stream()
-							.sorted()
-							.filter(key -> (key == Schema.LOC) || (key == Schema.CLIMATE) || (key == Schema.CITIES))
-							.forEach(key -> {
-								instruction.append( "● " + key.KOR_NAME + ":\n" + data_set.get(key) + "\n\n");
-							});
+					filter_func = key -> (key == Schema.LOC) || (key == Schema.CLIMATE) || (key == Schema.CITIES);
 					break;
 				case SEARCH_CULTURE:
-					data_set.keySet().stream()
-							.sorted()
-							.filter(key -> (key == Schema.RELIGION) || (key == Schema.NATION) || (key == Schema.LANG) || (key == Schema.MEDIA))
-							.forEach(key -> {
-								instruction.append( "● " + key.KOR_NAME + ":\n" + data_set.get(key) + "\n\n");
-							});
+					filter_func = key -> (key == Schema.RELIGION) || (key == Schema.NATION) || (key == Schema.LANG) || (key == Schema.MEDIA);
 					break;
 				case SEARCH_AREA:
-					data_set.keySet().stream()
-							.sorted()
-							.filter(key -> (key == Schema.SIZE) || (key == Schema.SIZE_COMP))
-							.forEach(key -> {
-								instruction.append( "● " + key.KOR_NAME + ":\n" + data_set.get(key) + "\n\n");
-							});
+					filter_func = key -> (key == Schema.SIZE) || (key == Schema.SIZE_COMP);
 					break;
 				case SEARCH_SOURE:
-					data_set.keySet().stream()
-							.sorted()
-							.filter(key ->  (key == Schema.SOURCE) || (key == Schema.STD_YEAR))
-							.forEach(key -> {
-								instruction.append( "● " + key.KOR_NAME + ":\n" + data_set.get(key) + "\n\n");
-							});
+					filter_func = key -> (key == Schema.SOURCE) || (key == Schema.STD_YEAR);
 					break;
 				default:
 			}
-			info_panel.setinstruction(instruction.toString());
+			String instruction = getInstruction(data_set, filter_func);
+			info_panel.setinstruction(instruction);
+		}
+
+		public String getInstruction(HashMap<Schema, String> data_set, SchemaFilter func) {
+			StringBuilder inst = new StringBuilder("");
+			data_set.keySet().stream()
+					.sorted()
+					.filter(key -> func.filtering(key))
+					.forEach(key -> {
+						inst.append( "● " + key.KOR_NAME + ":\n" + data_set.get(key) + "\n\n");
+					});
+			return inst.toString();
 		}
 	}
 }
