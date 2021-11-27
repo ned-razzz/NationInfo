@@ -1,6 +1,7 @@
 package View.Gamepage;
 
 import javax.swing.JPanel;
+import game.Game;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.ImageIcon;
@@ -13,7 +14,7 @@ import java.awt.Color;
 import java.awt.Font;
 
 public class PnGame extends JPanel {
-
+	Game game = new Game();
 	
 	//이건아직
 	public PnGame() {
@@ -37,36 +38,16 @@ public class PnGame extends JPanel {
 		add(Game_panel);
 		Game_panel.setLayout(null);
 		Game_panel.setVisible(false);
-		JLabel question_label = new JLabel("Contry");
+		JLabel question_label = new JLabel("Country");
 		question_label.setFont(new Font("궁서체", Font.PLAIN, 17));
 		question_label.setBorder(new TitledBorder(new LineBorder(Color.black,3)));
 		question_label.setBounds(158, 26, 468, 70);
 		Game_panel.add(question_label);
 		
-		JLabel question_static_label = new JLabel("위 국가의 수도는 무었일까요 ?");
+		JLabel question_static_label = new JLabel("위 국가의 수도는 무엇일까요 ?");
 		question_static_label.setFont(new Font("돋움체", Font.PLAIN, 30));
 		question_static_label.setBounds(168, 106, 443, 52);
 		Game_panel.add(question_static_label);
-		
-		JButton answer1_button = new JButton("New button");
-		answer1_button.setBounds(54, 289, 161, 65);
-		Game_panel.add(answer1_button);
-		
-		JButton answer2_button = new JButton("New button");
-		answer2_button.setBounds(332, 289, 161, 65);
-		Game_panel.add(answer2_button);
-		
-		JButton answer3_button = new JButton("New button");
-		answer3_button.setBounds(604, 289, 161, 65);
-		Game_panel.add(answer3_button);
-		
-		JButton next_button = new JButton("다음문제");
-		next_button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		next_button.setBounds(639, 390, 126, 42);
-		Game_panel.add(next_button);
 		
 		JLabel correct_label = new JLabel("정답입니다!!");
 		correct_label.setFont(new Font("바탕", Font.PLAIN, 24));
@@ -80,13 +61,66 @@ public class PnGame extends JPanel {
 		wrong_label.setVisible(false);
 		Game_panel.add(wrong_label);
 		
-		JLabel life_text = new JLabel("남은 기회");
+		JLabel life_text = new JLabel("남은 기회 :");
 		life_text.setBounds(54, 200, 68, 42);
 		Game_panel.add(life_text);
 		
 		JLabel life_label = new JLabel("5");
 		life_label.setBounds(118, 214, 34, 15);
 		Game_panel.add(life_label);
+		
+		JLabel score_text = new JLabel("점수 :");
+		score_text.setBounds(54, 240, 68, 42);
+		Game_panel.add(score_text);
+		
+		JLabel score_label = new JLabel("0");
+		score_label.setBounds(118, 254, 34, 15);
+		Game_panel.add(score_label);
+		
+		JButton answer1_button = new JButton("New button");
+		answer1_button.setBounds(54, 289, 161, 65);
+		Game_panel.add(answer1_button);
+		
+		JButton answer2_button = new JButton("New button");
+		answer2_button.setBounds(332, 289, 161, 65);
+		Game_panel.add(answer2_button);
+		
+		JButton answer3_button = new JButton("New button");
+		answer3_button.setBounds(604, 289, 161, 65);
+		Game_panel.add(answer3_button);
+		
+		answer1_button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(game.isCorrect(answer1_button.getText()) == 1)
+					correct_label.setVisible(true);
+				else
+					wrong_label.setVisible(true);
+				score_label.setText(Integer.toString(game.getScore()));
+				life_label.setText(Integer.toString(game.getLimit()));
+			}
+		});
+		
+		answer2_button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(game.isCorrect(answer2_button.getText()) == 1)
+					correct_label.setVisible(true);
+				else
+					wrong_label.setVisible(true);
+				score_label.setText(Integer.toString(game.getScore()));
+				life_label.setText(Integer.toString(game.getLimit()));
+			}
+		});
+		
+		answer3_button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(game.isCorrect(answer3_button.getText()) == 1)
+					correct_label.setVisible(true);
+				else
+					wrong_label.setVisible(true);
+				score_label.setText(Integer.toString(game.getScore()));
+				life_label.setText(Integer.toString(game.getLimit()));
+			}
+		});
 		
 		gameStart_Button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -96,9 +130,31 @@ public class PnGame extends JPanel {
 				gameStart_Button.setVisible(false);
 				
 				Game_panel.setVisible(true);
+				
+				//game run
+				game.gameRun();
+				question_label.setText(game.getName());
+				answer1_button.setText(game.getAnswer(0));
+				answer2_button.setText(game.getAnswer(1));
+				answer3_button.setText(game.getAnswer(2));
 			}
 		});
 		
+		JButton next_button = new JButton("다음문제");
+		next_button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				correct_label.setVisible(false);
+				wrong_label.setVisible(false);
+				game.gameRun();
+				
+				question_label.setText(game.getName());
+				answer1_button.setText(game.getAnswer(0));
+				answer2_button.setText(game.getAnswer(1));
+				answer3_button.setText(game.getAnswer(2));
+			}
+		});
+		next_button.setBounds(639, 390, 126, 42);
+		Game_panel.add(next_button);
 		//다음 버튼을 누를때 0이아니면 게임을 계속하고 0이되면 종료창이 나오도록 
 		
 				
