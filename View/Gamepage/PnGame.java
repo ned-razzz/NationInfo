@@ -1,6 +1,7 @@
 package View.Gamepage;
 
 import javax.swing.JPanel;
+import game.Game;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.ImageIcon;
@@ -13,7 +14,7 @@ import java.awt.Color;
 import java.awt.Font;
 
 public class PnGame extends JPanel {
-
+	Game game = new Game();
 	
 	//이건아직
 	public PnGame() {
@@ -43,7 +44,7 @@ public class PnGame extends JPanel {
 		question_label.setBounds(158, 26, 468, 70);
 		Game_panel.add(question_label);
 		
-		JLabel question_static_label = new JLabel("위 국가의 수도는 무었일까요 ?");
+		JLabel question_static_label = new JLabel("위 국가의 수도는 무엇일까요 ?");
 		question_static_label.setFont(new Font("돋움체", Font.PLAIN, 30));
 		question_static_label.setBounds(168, 106, 443, 52);
 		Game_panel.add(question_static_label);
@@ -63,6 +64,7 @@ public class PnGame extends JPanel {
 		JButton next_button = new JButton("다음문제");
 		next_button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				game.gameRun();
 			}
 		});
 		next_button.setBounds(639, 390, 126, 42);
@@ -96,6 +98,9 @@ public class PnGame extends JPanel {
 				gameStart_Button.setVisible(false);
 				
 				Game_panel.setVisible(true);
+				
+				//game run
+				game.gameRun();
 			}
 		});
 		
