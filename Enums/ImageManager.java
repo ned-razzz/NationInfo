@@ -23,7 +23,7 @@ public enum ImageManager {
 	RESTART_GAME("game_restart_button.png");
 
 
-    public final String PATH_TO_DIR = "./View/images/";
+    public final String PATH_TO_DIR = "./src/View/images/";
     public final String PATH_TO_IMG;
     public final String PATH;
 
