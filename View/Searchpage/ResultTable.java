@@ -1,6 +1,8 @@
 package View.Searchpage;
 
+import Enums.BtnAction;
 import Enums.ModernColor;
+import View.ControlHandler;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -25,11 +27,21 @@ public class ResultTable extends JPanel {
     }
 
     private JButton createButton(String name) {
-        JButton res_item = new JButton(name);
-        res_item.setActionCommand(name);
+        JButton res_item = new JButton(name) {
+            @Override
+            public Dimension getPreferredSize() {
+                return new Dimension(getWidth(), getHeight());
+            }
+            @Override
+            public Dimension getMaximumSize() {
+                return new Dimension(getWidth(), getHeight());
+            }
+        };
+        res_item.setBounds(0 ,0, 350, 34);
         res_item.setBackground(ModernColor.WHITE.COLOR);
         res_item.setVisible(true);
-        res_item.addActionListener(button_listener);
+        res_item.setActionCommand(BtnAction.SEARCH_SPECIPIC.toString());
+        ControlHandler.addButtonHandler(res_item);
         return res_item;
     }
 
@@ -48,8 +60,7 @@ public class ResultTable extends JPanel {
         repaint();
     }
 
-    public void executeSearch(ArrayList<String> search_result, ActionListener listener) {
-        button_listener = listener;
+    public void executeSearch(ArrayList<String> search_result) {
         showTable(search_result);
     }
 

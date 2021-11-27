@@ -25,9 +25,9 @@ public class ModelTest {
     }
 
     public void testGetColumn() {
-        HashMap<String, String> res = data_model.getColumn("불가리아");
+        HashMap<Schema, String> res = data_model.getColumn("불가리아");
         res.entrySet().stream().forEach(entry -> {
-            System.out.printf("%s : %s\n", entry.getKey(), entry.getValue());
+            System.out.printf("%s : %s\n", entry.getKey().KOR_NAME, entry.getValue());
         });
         System.out.println("====================");
     }

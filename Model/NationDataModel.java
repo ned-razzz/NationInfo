@@ -12,11 +12,11 @@ public class NationDataModel {
 	public final static String SQL_ALL = "select * from nation";
 
 	//특정 행 정보 전달
-	//key 매개변수는 반드시 PRIMARY_KEY만 가능
-	public HashMap<String, String> getColumn(String key) {
+	//value_of_key 매개변수는 반드시 PRIMARY_KEY만 가능
+	public HashMap<Schema, String> getColumn(String value_of_key) {
 		ResultSet sql_res = null; //sql 작업 리턴값
-		HashMap<String, String> res_data = new HashMap<>(); //최종 결과값
-		String sql = String.format(SQL_ALL + " where %s='%s'", PRIMARY_KEY, key);
+		HashMap<Schema, String> res_data = new HashMap<>(); //최종 결과값
+		String sql = String.format(SQL_ALL + " where %s='%s'", PRIMARY_KEY, value_of_key);
 
 		try {
 			//sql 작업
@@ -26,7 +26,8 @@ public class NationDataModel {
 
 			//sql한 결과를 Map 리스트에 저장
 			for (int i = 1; i <= sql_meta.getColumnCount(); i++) {
-				res_data.put(sql_meta.getColumnName(i), sql_res.getString(i));
+				Schema key = Schema.getFromEng(sql_meta.getColumnName(i));
+				res_data.put(key, sql_res.getString(i));
 			}
 		}
 		catch (SQLException e) {
@@ -36,7 +37,7 @@ public class NationDataModel {
 		return res_data;
 	}
 
-	//특정 열 정보 전달
+	//특정 열 정보 전달 (배열로 한꺼번에)
 	public HashMap<String, HashMap<String, String>> getColumnList(ArrayList<String> keys) {
 		HashMap<String, HashMap<String, String>> res_dataset = new HashMap<>();
 
@@ -89,12 +90,12 @@ public class NationDataModel {
 		return finded;
 	}
 	
-	public ArrayList<String> find(SearchFilterModel filter) {
+	public ArrayList<String> find(SearchFilterModel filter_model) {
 		ArrayList<String> finded = new ArrayList<>();
 		String sql = String.format("select %s from nation", PRIMARY_KEY);
 
-		if(!filter.getFilterList().isEmpty()) {
-			sql += String.format(" where %s", filter.getSql());
+		if(!filter_model.getFilterList().isEmpty()) {
+			sql += String.format(" where %s", filter_model.getSql());
 		}
 		System.out.println(sql);
 

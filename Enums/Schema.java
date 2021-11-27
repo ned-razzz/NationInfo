@@ -1,6 +1,8 @@
 package Enums;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public enum Schema {
@@ -16,24 +18,31 @@ public enum Schema {
     SIZE("area", "면적"),
     SOURCE("area_source", "면적출처"),
     SIZE_COMP("area_inst", "비교면적"),
-    LANG("lang", "언어");
+    LANG("lang", "언어"),
+    STD_YEAR("std_year", "조사일자");
 
-    public final String TYPE;
+    public final String ENG_NAME;
     public final String KOR_NAME;
+    public final static HashMap<String, Schema> search_list = new HashMap<String, Schema>(Arrays.stream(Schema.values())
+            .collect(Collectors.toMap(k -> k.ENG_NAME, v -> v)));
 
-    private Schema(String type, String name) {
-        this.TYPE = type;
-        this.KOR_NAME = name;
+    private Schema(String eng_name, String kor_name) {
+        this.ENG_NAME = eng_name;
+        this.KOR_NAME = kor_name;
+    }
+
+    public static Schema getFromKor(String kor_name) {
+        return Arrays.stream(Schema.values())
+                .filter(schema -> schema.KOR_NAME.equals(kor_name))
+                .findFirst().get();
+    }
+
+    public static Schema getFromEng(String eng_name) {
+        return search_list.get(eng_name);
     }
 
     @Override
     public String toString() {
-        return TYPE;
-    }
-
-    public static Schema getSchema(String name) {
-        return Arrays.stream(Schema.values())
-                .filter(schema -> schema.KOR_NAME == name)
-                .findFirst().get();
+        return ENG_NAME;
     }
 }

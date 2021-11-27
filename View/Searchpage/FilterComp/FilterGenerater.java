@@ -9,7 +9,7 @@ import Enums.BtnAction;
 import Enums.ModernColor;
 import Enums.Schema;
 import Model.SearchFilter;
-import View.ControlListeners;
+import View.ControlHandler;
 
 /**
  * 필터를 생성시키는 UI 컴포넌트
@@ -87,18 +87,7 @@ public class FilterGenerater extends JPanel {
         add_filter.setFont(new Font("Arial", Font.BOLD, 16));
         add_filter.setFocusPainted(false);
         add_filter.setActionCommand(BtnAction.ADD_FILTER.toString());
-        ControlListeners.addButtonHandler(add_filter);
-
-        /* 데이터 출력 테스트
-        add_filter.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println(Schema.getSchema(String.valueOf(type_setter.getSelectedItem())));
-                System.out.println(oper_setter.getSelection().getActionCommand());
-                System.out.println(content_setter.getText());
-            }
-        });
-         */
+        ControlHandler.addButtonHandler(add_filter);
 
         add(type_setter);
         add(include_radio);
@@ -119,6 +108,6 @@ public class FilterGenerater extends JPanel {
         String type = String.valueOf(type_setter.getSelectedItem());
         String oper = oper_setter.getSelection().getActionCommand();
         String content = content_setter.getText();
-        return new SearchFilter(Schema.getSchema(type), oper, content);
+        return new SearchFilter(Schema.getFromKor(type), oper, content);
     }
 }

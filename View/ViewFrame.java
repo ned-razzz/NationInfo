@@ -6,6 +6,7 @@ import View.Searchpage.SearchManager;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 
 public class ViewFrame extends JFrame {
@@ -23,7 +24,8 @@ public class ViewFrame extends JFrame {
 	/**
 	 * Create the application.
 	 */
-	public ViewFrame() {
+	public ViewFrame(ActionListener event_handler) {
+		ControlHandler.setActionHandler(event_handler);
 		setComponents();
 		setWindowFrame();
 		setLayers();
@@ -90,7 +92,7 @@ public class ViewFrame extends JFrame {
 		jlp.add(setup_page, JLayeredPane.MODAL_LAYER);
 	}
 
-	public SearchManager getSearchPanel() {
+	public SearchManager getSearchPage() {
 		return search_page;
 	}
 }

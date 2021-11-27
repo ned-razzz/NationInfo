@@ -3,7 +3,7 @@ package View.Searchpage;
 import Enums.BtnAction;
 import Enums.ImageManager;
 import Enums.ModernColor;
-import View.ControlListeners;
+import View.ControlHandler;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -38,14 +38,14 @@ public class SearchPanel extends JPanel {
         add(filter_component);
 
         result_table = new ResultTable();
-        JScrollPane scroll_panel = result_table.getScrollPanel();
-        scroll_panel.setBounds(330, 50, 350, 340);
-        add(scroll_panel);
+        JScrollPane srcoll_container = result_table.getScrollPanel();
+        srcoll_container.setBounds(330, 50, 350, 340);
+        add(srcoll_container);
 
         search_execute_button = new JButton("검색");
         search_execute_button.setBounds(350, 10, 60, 30);
         search_execute_button.setActionCommand(BtnAction.EXECUTE_SEARCH.toString());
-        ControlListeners.addButtonHandler(search_execute_button);
+        ControlHandler.addButtonHandler(search_execute_button);
         add(search_execute_button);
 
 
@@ -57,6 +57,10 @@ public class SearchPanel extends JPanel {
         return enter_button;
     }
 
+    public void show(ResultInfo obj) {
+        result_info = obj;
+    }
+
     public FilterManager getFilterManager() {
         return filter_component;
     }
@@ -65,34 +69,7 @@ public class SearchPanel extends JPanel {
         return result_table;
     }
 
-    public void setResultInfo(ResultInfo obj) {
-        result_info = obj;
-    }
-
     public ResultInfo getResultInfo() {
         return result_info;
     }
-
-
-//    public String getSearchText() {
-//        return search_text.getText();
-//    }
-
-//    public void setBtnListener(HashMap<String, ActionListener> list_map) {
-//        if (list_map.containsKey("execute")) {
-//            search_execute_button.addActionListener(list_map.get("execute"));
-//        }
-//    }
-
-//		// 검색 결과 버튼(예시) -> 누르면 검색 결과(나라 정보)가 나옴
-//		btCountry1.addActionListener(new ActionListener() {
-//
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				pnSearch_setVisible(true);
-//				simple_search.setVisible(false);
-//				btSrch.setVisible(false);
-//				btMap.setVisible(false);
-//			}
-//		});
 }
