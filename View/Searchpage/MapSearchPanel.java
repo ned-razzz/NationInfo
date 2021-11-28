@@ -95,11 +95,13 @@ public class MapSearchPanel extends SearchPanel {
 
     public void toggleCont(boolean b) {
         if (b) {
+            continent_map.setVisible(true);
             scroll_container.setVisible(true);
             result_table.setVisible(true);
             conti_exit_button.setVisible(true);
             worldmap.setVisible(false);
         } else {
+            continent_map.setVisible(false);
             scroll_container.setVisible(false);
             result_table.setVisible(false);
             conti_exit_button.setVisible(false);
