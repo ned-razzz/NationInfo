@@ -1,4 +1,4 @@
-package Control.gameControl;
+package View.Gamepage;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,7 +9,7 @@ import Control.Controller;
 import Enums.Schema;
 import Model.NationDataModel;
 
-public class Game {
+public class GameAlgorithm {
 	private int score;
 	private int limit = 5;
 	private String country_name;
@@ -39,7 +39,7 @@ public class Game {
 		return gameover;
 	}
 	
-	public Game() {
+	public GameAlgorithm() {
 		ndm = new NationDataModel();
 		answers = new String[4];
 	}
@@ -48,22 +48,22 @@ public class Game {
 		done = false;
 		Random random = new Random();
 		int answer = random.nextInt(4);
-		
+
 		int pNum = -1, nNum = -1;
-		for(int i = 0; i<4;) {
+		for (int i = 0; i < 4; ) {
 			System.out.print(i + "\n");
 			pNum = nNum;
 			//데이터의 수
 			nNum = random.nextInt(228);
-			
-			if(pNum == nNum) { 
+
+			if (pNum == nNum) {
 				continue;
 			}
-			
+
 			String[] info = ndm.gameInfo(nNum);
-			if(info == null || info[0].isEmpty() || info[0] == null) {
+			if (info == null || info[0].isEmpty() || info[0] == null) {
 				System.out.print("again\n");
-				if(info != null)
+				if (info != null)
 					System.out.print(info[0] + "\n");
 				continue;
 			}
@@ -73,33 +73,20 @@ public class Game {
 				country = info[1];
 				String[] forSplit = capital.split("\\(");
 				capital = forSplit[0];
-			}
-			catch(NullPointerException e) {
+			} catch (NullPointerException e) {
 				e.printStackTrace();
 			}
-			if(i == answer) {
+			if (i == answer) {
 				//해당하는 인덱스의 국가명과 수도 가져오기
 				country_name = country;
 				right = capital;
 			}
 			//System.out.print(nNum + "\n");
-			
+
 			answers[i] = capital;
 			i++;
 		}
 	}
-
-	/*
-	public void makeQuestion() {
-		done = false;
-		country_name = "스페인";
-		right = "마드리드";
-		answers[0] = "서울";
-		answers[1] = "주바";
-		answers[2] = "마드리드";
-		answers[3] = "니아메이";
-	}
-	*/
 	
 	public boolean gameRun() {
 		if(gameover == false) {

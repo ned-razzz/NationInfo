@@ -87,6 +87,7 @@ public class NationDataModel {
 		catch (SQLException e) {
 			e.printStackTrace();
 		}
+		finded = SortModel.sort(finded);
 		return finded;
 	}
 	
@@ -103,12 +104,12 @@ public class NationDataModel {
 			ResultSet sql_res = Database.getInstance().executeSql(sql);
 			while (sql_res.next()) {
 				finded.add(sql_res.getString(PRIMARY_KEY.toString()));
-				System.out.println(sql_res.getString(PRIMARY_KEY.toString()));
 			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
 		}
+		finded = SortModel.sort(finded);
 		return finded;
 	}
 

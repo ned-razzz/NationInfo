@@ -1,14 +1,10 @@
 package View;
 
-import View.Gamepage.PnGame;
+import View.Gamepage.GamePage;
 import View.Searchpage.SearchManager;
 
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.*;
-import javax.swing.border.LineBorder;
 
 /**
 * 여러 패널들을 조정하고 소통시키는 패널 관리자 클래스
@@ -22,11 +18,11 @@ enum VisitPage {
 
 public class PageManager {
 	private MainPage main_page;
-	private PnGame game_page;
+	private GamePage game_page;
 	private SearchManager search_page;
 
 	//Singleton Pattern
-	public PageManager(MainPage main, SearchManager search, PnGame game) {
+	public PageManager(MainPage main, SearchManager search, GamePage game) {
 		main_page = main;
 		search_page = search;
 		game_page = game;
@@ -36,7 +32,7 @@ public class PageManager {
 	}
 
 	//패널 이동 버튼 ActionListener 설정
-	public void setBtnListener() {
+	public void setMoveButtonListener() {
 		main_page.getSearchButton().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

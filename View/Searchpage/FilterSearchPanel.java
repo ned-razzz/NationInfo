@@ -29,7 +29,7 @@ public class FilterSearchPanel extends SearchPanel {
         search_execute_button = new JButton("검색");
         search_execute_button.setBounds(350, 10, 60, 30);
         search_execute_button.setActionCommand(BtnAction.EXECUTE_SEARCH.toString());
-        ControlHandler.addButtonHandler(search_execute_button);
+        ControlHandler.addButton(search_execute_button);
         add(search_execute_button);
     }
 

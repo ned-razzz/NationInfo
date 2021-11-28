@@ -16,7 +16,7 @@ import javax.swing.border.LineBorder;
 public class GameResult extends JPanel{
 	JLabel user_correct_Label;
 	
-	public GameResult(PnGame pn) {
+	public GameResult(GamePage pn) {
 		this.setBounds(0, 0, 824, 461);
 		setLayout(null);
 		

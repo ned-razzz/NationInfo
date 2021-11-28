@@ -48,7 +48,7 @@ public class SearchManager extends JPanel {
 		enter_mapsch_button.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				toggleMapPanel();
+				openMapPanel();
 			}
 		});
 
@@ -58,12 +58,12 @@ public class SearchManager extends JPanel {
 		add(enter_mapsch_button);
 	}
 
-	private void openFilterPanel() {
+	public void openFilterPanel() {
 		filter_search.setVisible(true);
 		map_search.setVisible(false);
 	}
 
-	private void toggleMapPanel() {
+	public void openMapPanel() {
 		map_search.setVisible(true);
 		filter_search.setVisible(false);
 	}

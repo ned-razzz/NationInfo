@@ -2,15 +2,11 @@ package View.Searchpage;
 
 import Enums.BtnAction;
 import Enums.ImgData;
-import Enums.ModernColor;
 import View.ControlHandler;
 import View.Searchpage.MapSearch.ContinentMap;
 import View.Searchpage.MapSearch.WorldMap;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Arrays;
 
 public class MapSearchPanel extends SearchPanel {
@@ -33,7 +29,7 @@ public class MapSearchPanel extends SearchPanel {
         conti_exit_button = new JButton("나가기");
         conti_exit_button.setBounds(350, 10, 80, 30);
         conti_exit_button.setActionCommand(BtnAction.EXIT_MAP.toString());
-        ControlHandler.addButtonHandler(conti_exit_button);
+        ControlHandler.addButton(conti_exit_button);
 
         setButtons();
 
@@ -78,7 +74,7 @@ public class MapSearchPanel extends SearchPanel {
         JButton[] btn_list = { btNthAmerica, btSthAmerica, btAfrica, btEurope, btAsia, btOceania};
         Arrays.stream(btn_list)
                 .forEach(btn -> {
-                    ControlHandler.addButtonHandler(btn);
+                    ControlHandler.addButton(btn);
                 });
 
         worldmap.add(btNthAmerica);

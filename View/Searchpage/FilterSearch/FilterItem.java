@@ -57,7 +57,7 @@ public class FilterItem extends JPanel {
         delete_button.setFont(new Font("Arial", Font.BOLD, 8));
 
         delete_button.setActionCommand(BtnAction.DELETE_FILTER.toString());
-        ControlHandler.addButtonHandler(delete_button);
+        ControlHandler.addButton(delete_button);
 
         add(type);
         add(oper);

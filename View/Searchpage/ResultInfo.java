@@ -66,35 +66,35 @@ public class ResultInfo extends JDialog {
 		menu_brief.setBounds(0, 20, 130, 45);
 		menu_brief.setBackground(ModernColor.WHITE.COLOR);
 		menu_bar.add(menu_brief);
-		ControlHandler.addButtonHandler(menu_brief);
+		ControlHandler.addButton(menu_brief);
 
 		menu_region = new JButton("지역 정보");
 		menu_region.setActionCommand(BtnAction.SEARCH_REGION.toString());
 		menu_region.setBounds(0, 70, 130, 45);
 		menu_region.setBackground(ModernColor.WHITE.COLOR);
 		menu_bar.add(menu_region);
-		ControlHandler.addButtonHandler(menu_region);
+		ControlHandler.addButton(menu_region);
 
 		menu_culture = new JButton("문화 정보");
 		menu_culture.setActionCommand(BtnAction.SEARCH_CULTURE.toString());
 		menu_culture.setBounds(0, 120, 130, 45);
 		menu_culture.setBackground(ModernColor.WHITE.COLOR);
 		menu_bar.add(menu_culture);
-		ControlHandler.addButtonHandler(menu_culture);
+		ControlHandler.addButton(menu_culture);
 
 		menu_area = new JButton("면적 정보");
 		menu_area.setActionCommand(BtnAction.SEARCH_AREA.toString());
 		menu_area.setBounds(0, 170, 130, 45);
 		menu_area.setBackground(ModernColor.WHITE.COLOR);
 		menu_bar.add(menu_area);
-		ControlHandler.addButtonHandler(menu_area);
+		ControlHandler.addButton(menu_area);
 
 		menu_source = new JButton("정보 출처");
 		menu_source.setActionCommand(BtnAction.SEARCH_SOURE.toString());
 		menu_source.setBounds(0, 220, 130, 45);
 		menu_source.setBackground(ModernColor.WHITE.COLOR);
 		menu_bar.add(menu_source);
-		ControlHandler.addButtonHandler(menu_source);
+		ControlHandler.addButton(menu_source);
 
 
 	}

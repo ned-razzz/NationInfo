@@ -87,7 +87,7 @@ public class FilterGenerater extends JPanel {
         add_filter.setFont(new Font("Arial", Font.BOLD, 16));
         add_filter.setFocusPainted(false);
         add_filter.setActionCommand(BtnAction.ADD_FILTER.toString());
-        ControlHandler.addButtonHandler(add_filter);
+        ControlHandler.addButton(add_filter);
 
         add(type_setter);
         add(include_radio);

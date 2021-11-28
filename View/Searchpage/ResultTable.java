@@ -41,7 +41,7 @@ public class ResultTable extends JPanel {
         res_item.setBackground(ModernColor.WHITE.COLOR);
         res_item.setVisible(true);
         res_item.setActionCommand(BtnAction.SEARCH_SPECIPIC.toString());
-        ControlHandler.addButtonHandler(res_item);
+        ControlHandler.addButton(res_item);
         return res_item;
     }
 

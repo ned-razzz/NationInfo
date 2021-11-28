@@ -101,17 +101,17 @@ public class Controller {
 		}
 
 		public void executeSearch() {
-			FilterSearchPanel search_panel = view_client.getSearchPage().getFilterPanel();
-			ResultTable result_panel = search_panel.getResultTable();
+			FilterSearchPanel filter_panel = view_client.getSearchPage().getFilterPanel();
+			ResultTable result_panel = filter_panel.getResultTable();
 			ArrayList<String> search_result = data_model.find(filter_model);
 			result_panel.executeSearch(search_result);
 		}
 
 		public void searchSpecific(JButton btn) {
-			FilterSearchPanel search_panel = view_client.getSearchPage().getFilterPanel();
+			FilterSearchPanel filter_panel = view_client.getSearchPage().getFilterPanel();
 			HashMap<Schema, String> get_data = data_model.getColumn(btn.getText());
 			ResultInfo info_panel = new ResultInfo(view_client, get_data);
-			search_panel.show(info_panel);
+			filter_panel.show(info_panel);
 		}
 
 		public void showInfo(BtnAction cmd) {

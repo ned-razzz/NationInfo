@@ -13,7 +13,7 @@ public class ControlHandler {
     //Control의 작업 명령이 담긴 버튼에 넣을 이벤트 핸들러.
     private static ActionListener btn_listener;
 
-    public static void addButtonHandler(JButton btn) {
+    public static void addButton(JButton btn) {
         if (btn_listener == null) {
             System.err.println("addButtonHandler: ControlHandler Listener Error");
         }

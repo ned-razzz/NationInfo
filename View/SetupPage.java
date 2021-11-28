@@ -19,7 +19,7 @@ public class SetupPage extends JPanel {
 
 	public SetupPage() {
 		setFrame();
-		defineSetupComponents();
+		defineComponents();
 	}
 
 	private void setFrame() {
@@ -29,7 +29,7 @@ public class SetupPage extends JPanel {
 		setVisible(false);
 	}
 
-	private void defineSetupComponents() {
+	private void defineComponents() {
 		/**
 		* 설정 컴포넌트는 따로 컨테이너를 정의해서 구조화시킬 필요가 있음.
 		 */
@@ -70,7 +70,7 @@ public class SetupPage extends JPanel {
 		add(gotomain_Label);
 	}
 
-	private void toggleSetupPanel() {
+	public void toggleSetupPanel() {
  		setVisible(!isVisible());
 	}
 

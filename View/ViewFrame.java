@@ -1,6 +1,5 @@
 package View;
 
-import Enums.Schema;
 import View.Gamepage.*;
 import View.Searchpage.SearchManager;
 
@@ -18,7 +17,7 @@ public class ViewFrame extends JFrame {
 	private PageManager page_manager;
 	private MainPage main_page;
 	private SearchManager search_page;
-	private PnGame game_page;
+	private GamePage game_page;
 	private SetupPage setup_page;
 	
 	/**
@@ -58,10 +57,10 @@ public class ViewFrame extends JFrame {
 		main_page = new MainPage();
 		search_page = new SearchManager();
 		setup_page = new SetupPage();
-		game_page = new PnGame(content_pane);
+		game_page = new GamePage(content_pane);
 		
 		page_manager = new PageManager(main_page, search_page, game_page);
-		page_manager.setBtnListener();
+		page_manager.setMoveButtonListener();
 
 		JButton setup_button = setup_page.getSetupButton();
 		JButton goback_main_button = main_page.getGobackButton();

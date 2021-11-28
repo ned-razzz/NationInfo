@@ -11,10 +11,9 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
-import Control.gameControl.Game;
 import Enums.ImgData;
 
-public class GameRun extends JPanel {
+public class GameRunner extends JPanel {
 	JButton answer_1;
 	JButton answer_2;
 	JButton answer_3;
@@ -31,14 +30,13 @@ public class GameRun extends JPanel {
 	JLabel answer_Label;
 	JLabel correct_static_label;
 	
-	Game game;
-	
 	JPanel panel;
 	JPanel right_p;
 
+	GameAlgorithm game;
 	GameResult game_result;
 	
-	public GameRun(Container content_pane, PnGame pn, Game g) {
+	public GameRunner(Container content_pane, GamePage pn, GameAlgorithm g) {
 		game = g;
 		
 		setVisible(true);

@@ -56,7 +56,7 @@ public class MainPage extends JPanel {
 	}
 	
 	//메인 화면 타이틀 이미지
-	private void setTitle() {
+	public void setTitle() {
 		main_title_label = new JLabel("");
 		main_title_label.setIcon(ImgData.MAIN_TITLE.getIcon());
 		main_title_label.setFont(new Font("Arial Black", Font.PLAIN, 19));
@@ -65,7 +65,7 @@ public class MainPage extends JPanel {
 	}
 
 	//버튼 텍스트
-	private void setLabel() {
+	public void setLabel() {
 		//국가검색 진입 텍스트
 		search_label = new JLabel("국가 검색");
 		search_label.setFont(new Font("돋움",  Font.BOLD, 20));
