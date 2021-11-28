@@ -23,7 +23,14 @@ public enum ImgData {
     EUROPE_MAP("europe.png"),
     NORTH_AMERICA_MAP("north_america.png"),
     SOUTH_AMERICA_MAP("south_america.png"),
-    OCEANIA_MAP("oceania.png");
+    OCEANIA_MAP("oceania.png"),
+
+    //Game Page
+    START_GAME("start_button.png"),
+    LABEL_GAME("game_text.png"),
+    GO_RESULT_GAME("game_result_text1.png"),
+    RESULT_GAME("game_result_text.png"),
+    RESTART_GAME("game_restart_button.png");
 
     public final String PATH_TO_DIR = "./src/View/images/";
     public final String PATH_TO_IMG;
