@@ -193,6 +193,8 @@ public class Controller {
 			ArrayList<String> search_result = data_model.find(new SearchFilter(Schema.LOC, SearchFilter.RIGHT_OPER, content));
 			result_panel.executeSearch(search_result);
 			map_panel.toggleCont(true);
+			view_client.revalidate();
+			view_client.repaint();
 
 		}
 

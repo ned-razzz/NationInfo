@@ -14,7 +14,7 @@ public class ContinentMap extends JPanel {
 		conti_img = new JLabel("");
 		conti_img.setBounds(12, 10, 376, 431);
 		add(conti_img);
-		setVisible(true);
+		conti_img.setVisible(true);
 	}
 	
 	public void select(int con) {

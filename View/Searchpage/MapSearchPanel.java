@@ -95,17 +95,17 @@ public class MapSearchPanel extends SearchPanel {
 
     public void toggleCont(boolean b) {
         if (b) {
-            worldmap.setVisible(false);
             scroll_container.setVisible(true);
             result_table.setVisible(true);
             conti_exit_button.setVisible(true);
+            worldmap.setVisible(false);
         } else {
-            worldmap.setVisible(true);
             scroll_container.setVisible(false);
             result_table.setVisible(false);
             conti_exit_button.setVisible(false);
+            worldmap.setVisible(true);
         }
         revalidate();
-        repaint();
+        worldmap.repaint();
     }
 }

@@ -12,7 +12,7 @@ import javax.swing.*;
  */
 public class FilterSearchPanel extends SearchPanel {
 
-    private FilterManager filter_component;
+    private FilterManager filter_comp;
     private JButton search_execute_button;
     private ResultInfo result_info;
 
@@ -24,8 +24,8 @@ public class FilterSearchPanel extends SearchPanel {
     @Override
     protected void defineComponents() {
         super.defineComponents();
-        filter_component = new FilterManager();
-        add(filter_component);
+        filter_comp = new FilterManager();
+        add(filter_comp);
         search_execute_button = new JButton("검색");
         search_execute_button.setBounds(350, 10, 60, 30);
         search_execute_button.setActionCommand(BtnAction.EXECUTE_SEARCH.toString());
@@ -45,7 +45,7 @@ public class FilterSearchPanel extends SearchPanel {
     }
 
     public FilterManager getFilterManager() {
-        return filter_component;
+        return filter_comp;
     }
 
     public ResultInfo getResultInfo() {

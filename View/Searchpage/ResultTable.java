@@ -15,8 +15,6 @@ import java.util.ArrayList;
  */
 public class ResultTable extends JPanel {
 
-    private ActionListener button_listener;
-
     public ResultTable() {
         setFrame();
     }
@@ -45,7 +43,7 @@ public class ResultTable extends JPanel {
         return res_item;
     }
 
-    private void resetTable() {
+    public void resetTable() {
         removeAll();
     }
 

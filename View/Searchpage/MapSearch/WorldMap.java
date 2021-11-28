@@ -6,18 +6,13 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 
-public class WorldMap extends JPanel {
-	private Image img;
+public class WorldMap extends JLabel {
 
 	public WorldMap() {
-		img = ImgData.WORLD_MAP.getIcon().getImage();
-		setSize(new Dimension(img.getWidth(null), img.getHeight(null)));
+		setIcon(ImgData.WORLD_MAP.getIcon());
+		setBounds(0, 0, 700, 400);
 		setLayout(null);
-	}
-
-	public void paintComponent(Graphics g) {
-		g.drawImage(img, 0, 0, null);
 	}
 }
